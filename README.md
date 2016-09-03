@@ -4,7 +4,6 @@ Java &amp; Android 开发知识点备忘
 ## Java
 <br>
 ## Android
-<br>
 ### Android四大组件
 #### Activity
 #### Service
@@ -39,9 +38,9 @@ Java &amp; Android 开发知识点备忘
 ####IntentService
 ####HandlerThread
 ####ThreadPoolExecutor
-
+<br>
 ## Android Studio
-
+<br>
 ## 数据库
-
+<br>
 ## 计算机网络
