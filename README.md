@@ -75,8 +75,9 @@ Java &amp; Android 知识点备忘
 
 ### 图片加载
 * 图片压缩
-* LruCache
-* DiskLruCache
+* 图片缓存
+  * LruCache
+  * DiskLruCache
 <br>
 
 ### 动画
