@@ -1,5 +1,5 @@
 # StudyRoad
-Java &amp; Android 开发知识点备忘
+Java &amp; Android 知识点备忘
 
 ## Java
 <br>
