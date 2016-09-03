@@ -5,10 +5,13 @@ Java &amp; Android 开发知识点备忘
 <br>
 ## Android
 ### Android四大组件
-* Activity
-* Service
-* BroadcastReceiver
-* ContentProvider
+#### Activity
+#### Service
+#### BroadcastReceiver
+#### ContentProvider
+<br>
+
+### Intent
 <br>
 
 ### Fragment
