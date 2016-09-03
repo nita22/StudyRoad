@@ -21,6 +21,37 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### UI控件
+* ViewGroup
+* Android初级控件
+
+> TextView
+> Button
+> EditText法
+> ImageView
+> RadioButton
+> Checkbox
+
+<br>
+
+* Android高级控件
+
+> ListView
+> GridView
+> Adapter
+> Spinner
+> Gallary
+> ScrollView
+> RecyclerView
+
+* 对话框与菜单
+
+> Dialog
+> BlockquoteAlertDialog
+> DatePickerDialog
+> Menu
+
+<br>
+
 * RemoteViews
 <br>
 
