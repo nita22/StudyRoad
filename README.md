@@ -21,6 +21,10 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### UI控件
+* RemoteViews
+<br>
+
+### Drawable
 <br>
 
 ### 图片加载
