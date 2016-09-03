@@ -105,6 +105,9 @@ Java &amp; Android 知识点备忘
 * Socket
 <br>
 
+### 性能优化
+<br>
+
 ## Android Studio
 <br>
 ## 数据库
