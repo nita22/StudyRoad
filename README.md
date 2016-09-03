@@ -5,7 +5,7 @@ Java &amp; Android 知识点备忘
 <br>
 ## Android
 ### Android组件
-#### Activity
+#### [Activity](/blob/master/Android-Components/Activity) 
 #### Service
 #### BroadcastReceiver
 #### ContentProvider
