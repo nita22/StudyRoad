@@ -4,17 +4,13 @@ Java &amp; Android 开发知识点备忘
 ## Java
 <br>
 ## Android
-### Android四大组件
+### Android组件
 #### Activity
 #### Service
 #### BroadcastReceiver
 #### ContentProvider
-<br>
-
-### Intent
-<br>
-
-### Fragment
+#### Intent
+#### Fragment
 <br>
 
 ### View
