@@ -24,31 +24,31 @@ Java &amp; Android 知识点备忘
 * ViewGroup
 * Android初级控件
 
-> TextView
-> Button
-> EditText法
-> ImageView
-> RadioButton
-> Checkbox
+> TextView<br>
+> Button<br>
+> EditText<br>
+> ImageView<br>
+> RadioButton<br>
+> Checkbox<br>
 
 <br>
 
 * Android高级控件
 
-> ListView
-> GridView
-> Adapter
-> Spinner
-> Gallary
-> ScrollView
-> RecyclerView
+> ListView<br>
+> GridView<br>
+> Adapter<br>
+> Spinner<br>
+> Gallary<br>
+> ScrollView<br>
+> RecyclerView<br>
 
 * 对话框与菜单
 
-> Dialog
-> BlockquoteAlertDialog
-> DatePickerDialog
-> Menu
+> Dialog<br>
+> BlockquoteAlertDialog<br>
+> DatePickerDialog<br>
+> Menu<br>
 
 <br>
 
