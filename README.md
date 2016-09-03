@@ -22,6 +22,8 @@ Java &amp; Android 知识点备忘
 
 ### UI控件
 * ViewGroup
+
+<br>
 * Android初级控件
 
 > TextView<br>
