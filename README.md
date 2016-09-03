@@ -107,11 +107,28 @@ Java &amp; Android 知识点备忘
 * Socket
 <br>
 
+### 网络编程
+<br>
+
+### 数据存储技术
+* SharedPreference
+* 文件储存
+* SQLite数据库
+
+<br>
+
+### 硬件方面
+* 电话 短信
+* 蓝牙 NFC Wifi
+* 位置服务
+* 硬件传感器
+* 音频、视频、摄像头
+
+<br>
+
 ### 性能优化
 <br>
 
-## Android Studio
+### Android Studio
 <br>
-## 数据库
-<br>
-## 计算机网络
+
