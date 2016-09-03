@@ -4,7 +4,13 @@ Java &amp; Android 开发知识点备忘
 ## Java
 
 ## Android
+
 ### Android四大组件
+#### Activity
+#### Service
+#### BroadcastReceiver
+#### ContentProvider
+
 ### View
 ### 图片加载
 ### 动画
