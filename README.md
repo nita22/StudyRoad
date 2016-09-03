@@ -1,7 +1,7 @@
 # StudyRoad
 Java &amp; Android 知识点备忘
 
-## Java
+## Java SE
 <br>
 ## Android
 ### Android组件
