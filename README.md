@@ -56,6 +56,18 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### Drawable
+> BitmapDrawable<br>
+> ShapeDrawable<br>
+> LayerDrawable<br>
+> StateListDrawable<br>
+> LevelListDrawable<br>
+> InsetDrawable<br>
+> ScaleDrawable<br>
+> ClipDrawable<br>
+<br>
+
+* 自定义Drawable
+
 <br>
 
 ### 图片加载
@@ -82,6 +94,7 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### 多进程
+* Binder
 * Bundle
 * Messenger
 * AIDL
