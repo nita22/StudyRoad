@@ -5,7 +5,7 @@ Java &amp; Android 知识点备忘
 <br>
 ## Android
 ### Android组件
-#### [Activity](/Android-Components/Activity) 
+#### [Activity](/Android-Components/Activity.md) 
 #### [Service](/Android-Components/Service) 
 #### [BroadcastReceiver](/Android-Components/BroadcastReceiver)
 #### [ContentProvider](/Android-Components/ContentProvider)
