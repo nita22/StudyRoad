@@ -34,6 +34,12 @@ startActivity(intent);
 * 系统只在Activity异常终止的时候才会调用`onSaveInstanceState()`跟`onRestoreInstanceState()`来存储和回复数据，其它情况不会触发这个过程。
 如果系统调用`onSaveInstanceState()`，它会在调用`onStop()`之前，并且可能会在调用`onPause()`之前进行调用。如果系统调用 `onRestoreInstanceState()`，它会在调用`onStart()`之前进行调用。<br>
 * Activity 类的`onSaveInstanceState()`默认实现也会恢复部分 Activity 状态。具体地讲，默认实现会为布局中的每个 View 调用相应的 `onSaveInstanceState()`方法，让每个视图都能提供有关自身的应保存信息。
+
+### 处理配置变更
+有些设备配置可能会在运行时发生变化（例如屏幕方向、键盘可用性及语言）。 发生此类变化时，Android 会重建运行中的 Activity（系统调用 `onDestroy()`，然后立即调用`onCreate()`）。
+处理此类重启的最佳方法 是利用`onSaveInstanceState()`和`onRestoreInstanceState()`（或`onCreate()`）保存并恢复 Activity 的状态。
+不想系统重新创建Activity，可以给Activity制定`configChanges`属性。
+
 ### 协调 Activity
 1.Activity A 的`onPause()`方法执行。<br>
 2.Activity B 的`onCreate()`、`onStart()`和`onResume()`方法依次执行。（Activity B 现在具有用户焦点。）<br>
