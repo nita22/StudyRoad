@@ -30,7 +30,7 @@ startActivity(intent);
 ![](https://developer.android.com/images/activity_lifecycle.png)
 
 ### 保存 Activity 状态
-* 系统会先调用`onSaveInstanceState()`，然后再使 Activity 变得易于销毁。系统会向该方法传递一个 Bundle，您可以在其中使用`putString()`和 `putInt()`等方法以名称-值对形式保存有关 Activity 状态的信息。然后，如果系统终止您的应用进程，并且用户返回您的 Activity，则系统会重建该 Activity，并将 Bundle 同时传递给`onCreate()`和`onRestoreInstanceState()`。您可以使用上述任一方法从 Bundle 提取您保存的状态并恢复该 Activity 状态。如果没有状态信息需要恢复，则传递给您的 Bundle 是空值（如果是首次创建该 Activity，就会出现这种情况）。<br>
+* 系统会先调用`onSaveInstanceState()`，然后再使 Activity 变得易于销毁。系统会向该方法传递一个 Bundle，您可以在其中使用`putString()`和 `putInt()`等方法以名称-值对形式保存有关 Activity 状态的信息。然后，如果系统终止您的应用进程，并且用户返回您的 Activity，则系统会重建该 Activity，并将 Bundle 同时传递给 `onCreate()`和`onRestoreInstanceState()`。您可以使用上述任一方法从 Bundle 提取您保存的状态并恢复该 Activity 状态。如果没有状态信息需要恢复，则传递给您的 Bundle 是空值（如果是首次创建该 Activity，就会出现这种情况）。<br>
 * 系统只在Activity异常终止的时候才会调用`onSaveInstanceState()`跟`onRestoreInstanceState()`来存储和回复数据，其它情况不会触发这个过程。
 如果系统调用`onSaveInstanceState()`，它会在调用`onStop()`之前，并且可能会在调用`onPause()`之前进行调用。如果系统调用 `onRestoreInstanceState()`，它会在调用`onStart()`之前进行调用。<br>
 * Activity 类的`onSaveInstanceState()`默认实现也会恢复部分 Activity 状态。具体地讲，默认实现会为布局中的每个 View 调用相应的 `onSaveInstanceState()`方法，让每个视图都能提供有关自身的应保存信息。
