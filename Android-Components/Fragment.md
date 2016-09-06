@@ -3,7 +3,7 @@
 要想创建Fragment，您必须创建 Fragment 的子类（或已有其子类，例如`DialogFragment`，`ListFragment`，`PreferenceFragment`）。至少应实现以下生命周期方法：
 `onCreate()`，`onCreateView()`，`onPause()`。
 ### 添加用户界面
-要想为Fragment提供布局，您必须实现 onCreateView() 回调方法，Android 系统会在Fragment需要绘制其布局时调用该方法。您对此方法的实现返回的 View 必须是Fragment布局的根视图。
+要想为Fragment提供布局，您必须实现`onCreateView()`回调方法，Android 系统会在Fragment需要绘制其布局时调用该方法。您对此方法的实现返回的 View 必须是Fragment布局的根视图。
 ```java 
 public static class ExampleFragment extends Fragment {
     @Override
@@ -60,24 +60,24 @@ FragmentManager fragmentManager = getFragmentManager();
 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 ```
 * 每个事务都是您想要同时执行的一组更改。您可以使用`add()`、`remove()`和 `replace()`等方法为给定事务设置您想要执行的所有更改。然后，要想将事务应用到 Activity，您必须调用`commit()`。
-* 不过，在您调用`commit()`之前，您可能想调用`addToBackStack()`，以将事务添加到Fragment事务返回栈。 该返回栈由 Activity 管理，允许用户通过按“返回” 按钮返回上一Fragment状态。如果您向事务添加了多个更改（如又一个`add()`或`remove()`），并且调用了 `addToBackStack()`，则在调用`commit()`前应用的所有更改都将作为单一事务添加到返回栈，并且“返回” 按钮会将它们一并撤消。如果您没有在执行删除片段的事务时调用`addToBackStack()`，则事务提交时该片段会被销毁，用户将无法回退到该片段。 不过，如果您在删除片段时调用了`addToBackStack()`，则系统会停止该片段，并在用户回退时将其恢复。
-* 对于每个片段事务，您都可以通过在提交前调用`setTransition()`来应用过渡动画。
+* 不过，在您调用`commit()`之前，您可能想调用`addToBackStack()`，以将事务添加到Fragment事务返回栈。 该返回栈由 Activity 管理，允许用户通过按“返回” 按钮返回上一Fragment状态。如果您向事务添加了多个更改（如又一个`add()`或`remove()`），并且调用了 `addToBackStack()`，则在调用`commit()`前应用的所有更改都将作为单一事务添加到返回栈，并且“返回” 按钮会将它们一并撤消。如果您没有在执行删除Fragment的事务时调用`addToBackStack()`，则事务提交时该Fragment会被销毁，用户将无法回退到该Fragment。 不过，如果您在删除Fragment时调用了`addToBackStack()`，则系统会停止该Fragment，并在用户回退时将其恢复。
+* 对于每个Fragment事务，您都可以通过在提交前调用`setTransition()`来应用过渡动画。
 * 调用`commit()`不会立即执行事务，而是在 Activity 的 UI 线程可以执行该操作时再安排其在线程上运行。不过，如有必要，您也可以从 UI 线程调用`executePendingTransactions()`以立即执行`commit()`提交的事务。通常不必这样做，除非其他线程中的作业依赖该事务。
 * 只能在 Activity保存其状态（用户离开 Activity）之前使`commit()`提交事务。如果您试图在该时间点后提交，则会引发异常。 这是因为如需恢复 Activity，则提交后的状态可能会丢失。 对于丢失提交无关紧要的情况，请使用`commitAllowingStateLoss()`。
 
 ### 与 Activity 通信
-* 片段可以通过`getActivity()`访问 Activity 实例
+* Fragment可以通过`getActivity()`访问 Activity 实例
 * Activity 也可以使用FragmentManager的`findFragmentById()`或`findFragmentByTag()`方法获取对 Fragment 的引用
 
 ### 向操作栏添加项目
-您的片段可以通过实现`onCreateOptionsMenu()`向 Activity 的选项菜单（并因此向操作栏）贡献菜单项。不过，为了使此方法能够收到调用，您必须在`onCreate()`期间调用 `setHasOptionsMenu()`，以指示片段想要向选项菜单添加菜单项（否则，片段将不会收到对`onCreateOptionsMenu()`的调用）。<br>
+您的Fragment可以通过实现`onCreateOptionsMenu()`向 Activity 的选项菜单（并因此向操作栏）贡献菜单项。不过，为了使此方法能够收到调用，您必须在`onCreate()`期间调用 `setHasOptionsMenu()`，以指示Fragment想要向选项菜单添加菜单项（否则，Fragment将不会收到对`onCreateOptionsMenu()`的调用）。<br>
 
-您之后从片段添加到选项菜单的任何菜单项都将追加到现有菜单项之后。 选定菜单项时，片段还会收到对`onOptionsItemSelected()`的回调。<br>
+您之后从Fragment添加到选项菜单的任何菜单项都将追加到现有菜单项之后。 选定菜单项时，Fragment还会收到对`onOptionsItemSelected()`的回调。<br>
 
-您还可以通过调用`registerForContextMenu()`，在片段布局中注册一个视图来提供上下文菜单。用户打开上下文菜单时，片段会收到对 `onCreateContextMenu()`的调用。当用户选择某个菜单项时，片段会收到对`onContextItemSelected()`的调用。<br>
+您还可以通过调用`registerForContextMenu()`，在Fragment布局中注册一个视图来提供上下文菜单。用户打开上下文菜单时，Fragment会收到对 `onCreateContextMenu()`的调用。当用户选择某个菜单项时，Fragment会收到对`onContextItemSelected()`的调用。<br>
 
 ### Fragment生命周期
-假使 Activity 的进程被终止，而您需要在重建 Activity 时恢复片段状态，您也可以使用 Bundle 保留片段的状态。您可以在片段的 `onSaveInstanceState()`回调期间保存状态，并可在`onCreate()`、`onCreateView()`或`onActivityCreated()`期间恢复状态。<br>
-仅当您在删除片段的事务执行期间通过调用`addToBackStack()`显式请求保存实例时，系统才会将片段放入由宿主 Activity 管理的返回栈。
-![](https://developer.android.com/images/fragment_lifecycle.png)
+假使 Activity 的进程被终止，而您需要在重建 Activity 时恢复Fragment状态，您也可以使用 Bundle 保留Fragment的状态。您可以在Fragment的 `onSaveInstanceState()`回调期间保存状态，并可在`onCreate()`、`onCreateView()`或`onActivityCreated()`期间恢复状态。<br>
+仅当您在删除Fragment的事务执行期间通过调用`addToBackStack()`显式请求保存实例时，系统才会将Fragment放入由宿主 Activity 管理的返回栈。<br>
+![](https://developer.android.com/images/fragment_lifecycle.png)<br>
 ![](https://developer.android.com/images/activity_fragment_lifecycle.png)
