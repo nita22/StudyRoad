@@ -6,11 +6,11 @@ Java &amp; Android 知识点备忘
 ## Android
 ### Android组件
 #### [Activity](/Android-Components/Activity.md) 
-#### [Service](/Android-Components/Service) 
-#### [BroadcastReceiver](/Android-Components/BroadcastReceiver)
-#### [ContentProvider](/Android-Components/ContentProvider)
-#### [Intent](/Android-Components/Intent)
-#### [Fragement](/Android-Components/Fragment)
+#### [Service](/Android-Components/Service.md) 
+#### [BroadcastReceiver](/Android-Components/BroadcastReceiver.md)
+#### [ContentProvider](/Android-Components/ContentProvider.md)
+#### [Intent](/Android-Components/Intent.md)
+#### [Fragement](/Android-Components/Fragment.md)
 <br>
 
 ### View
