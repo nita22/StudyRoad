@@ -36,9 +36,9 @@ startActivity(intent);
 * Activity 类的`onSaveInstanceState()`默认实现也会恢复部分 Activity 状态。具体地讲，默认实现会为布局中的每个 View 调用相应的 `onSaveInstanceState()`方法，让每个视图都能提供有关自身的应保存信息。
 
 ### 处理配置变更
-*有些设备配置可能会在运行时发生变化（例如屏幕方向、键盘可用性及语言）。 发生此类变化时，Android 会重建运行中的 Activity（系统调用 `onDestroy()`，然后立即调用`onCreate()`）。<br>
-*处理此类重启的最佳方法 是利用`onSaveInstanceState()`和`onRestoreInstanceState()`（或`onCreate()`）保存并恢复 Activity 的状态。<br>
-*不想系统重新创建Activity，可以给Activity制定`configChanges`属性。
+* 有些设备配置可能会在运行时发生变化（例如屏幕方向、键盘可用性及语言）。 发生此类变化时，Android 会重建运行中的 Activity（系统调用 `onDestroy()`，然后立即调用`onCreate()`）。<br>
+* 处理此类重启的最佳方法 是利用`onSaveInstanceState()`和`onRestoreInstanceState()`（或`onCreate()`）保存并恢复 Activity 的状态。<br>
+* 不想系统重新创建Activity，可以给Activity制定`configChanges`属性。
 
 ### 协调 Activity
 1.Activity A 的`onPause()`方法执行。<br>
