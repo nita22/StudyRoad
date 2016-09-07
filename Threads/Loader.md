@@ -1,8 +1,11 @@
+Loader用于从数据源加载某类数据。数据源可以是磁盘、数据库、ContentProvider、网络或者另一进程。Loader可在不阻塞主线程的情况下获取并发送结果数据给接受者。<br><br>
+Loader有三种内置类型：Loader、AsyncTaskLoader、CursorLoader。AsyncTaskLoader继承于Loader，是一个抽象Loader。而CursorLoader继承于AsyncTaskLoader。<br><br>
 Loader具有以下特征：
 * 可用于每个 Activity 和 Fragment
 * 支持异步加载数据
 * 监控其数据源并在内容变化时传递新结果
 * 在某一配置更改后重建Loader时，会自动重新连接上一个Loader的 Cursor。 因此，它们无需重新查询其数据
+* 发生配置更改时，LoaderManager可保证组件的Loader及其数据不会丢失
 
 ### 启动Loader
 `LoaderManager`可在 Activity 或 Fragment 内管理一个或多个`Loader`实例。每个 Activity 或Fragment只有一个`LoaderManager`。
