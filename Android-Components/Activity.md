@@ -47,7 +47,7 @@ startActivity(intent);
 
 ### Activity启动模式
 ####使用清单文件
-在清单文件中声明 Activity 时，您可以使用\<activity\>; 元素的`launchMode`属性指定 Activity 应该如何与任务关联。
+在清单文件中声明 Activity 时，您可以使用\<activity\>元素的`launchMode`属性指定 Activity 应该如何与任务关联。
 * "standard"
 系统的默认模式。每次启动一个Activity都会重新创建一个新的实例，不管这个实例是否已经存在。
 * "singleTop"
