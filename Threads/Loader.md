@@ -25,8 +25,8 @@ getLoaderManager().initLoader(0, null, this);
 当您使用`initLoader()` 时，它将使用含有指定 ID 的现有Loader（如有）。如果没有，则它会创建一个。但有时，您想放弃这些旧数据并重新开始，此时可以使用`restartLoader()`方法实现。
 
 ### 使用 LoaderManager 回调
-LoaderManager将根据需要启动和停止加载，并维护Loader的状态及其相关内容。这意味着您很少直接与Loader进行交互。当特殊事件发生时，您通常会使用`LoaderManager.LoaderCallbacks`接口的方法干预加载进程。
-`LoaderManager.LoaderCallbacks`是一个支持客户端与`LoaderManager`交互的回调接口。<br>
+LoaderManager将根据需要启动和停止加载，并维护Loader的状态及其相关内容。这意味着您很少直接与Loader进行交互。当特殊事件发生时，您通常会使用`LoaderManager.LoaderCallbacks`接口的方法干预加载进程。<br><br>
+`LoaderManager.LoaderCallbacks`是一个支持客户端与`LoaderManager`交互的回调接口。<br><br>
 Loader（特别是 CursorLoader）在停止运行后，仍需保留其数据。可使用`LoaderManager.LoaderCallbacks`方法了解何时创建新Loader，并告知应用何时停止使用Loader的数据。<br>
 * `onCreateLoader()`:当您尝试访问Loader时（例如，通过`initLoader()`），该方法将检查是否已存在由该 ID 指定的Loader。如果没有，它将触发`LoaderManager.LoaderCallbacks`方法`onCreateLoader()`。在此方法中，您可以创建新Loader。 通常，这将是`CursorLoader`，但您也可以实现自己的 Loader 子类。
 * `onLoadFinished()`:当先前创建的Loader完成加载时，将调用此方法。该方法必须在为此Loader提供的最后一个数据释放之前调用。 此时，您应移除所有使用的旧数据（因为它们很快会被释放），但不要自行释放这些数据，因为这些数据归其Loader所有，其Loader会处理它们。
