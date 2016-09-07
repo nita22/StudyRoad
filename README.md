@@ -97,6 +97,7 @@ Java &amp; Android 知识点备忘
 * IntentService
 * HandlerThread
 * ThreadPoolExecutor
+* Loader
 <br>
 
 ### 多进程
