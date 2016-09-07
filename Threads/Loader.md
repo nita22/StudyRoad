@@ -27,7 +27,7 @@ getLoaderManager().initLoader(0, null, this);
 ### 使用 LoaderManager 回调
 `LoaderManager.LoaderCallbacks`是一个支持客户端与`LoaderManager`交互的回调接口。<br>
 Loader（特别是 CursorLoader）在停止运行后，仍需保留其数据。可使用`LoaderManager.LoaderCallbacks`方法了解何时创建新Loader，并告知应用何时停止使用Loader的数据。<br>
-* `onCreateLoader()`:当您尝试访问Loader时（例如，通过 initLoader()），该方法将检查是否已存在由该 ID 指定的Loader。如果没有，它将触发`LoaderManager.LoaderCallbacks`方法`onCreateLoader()`。在此方法中，您可以创建新Loader。 通常，这将是`CursorLoader`，但您也可以实现自己的 Loader 子类。
+* `onCreateLoader()`:当您尝试访问Loader时（例如，通过`initLoader()`），该方法将检查是否已存在由该 ID 指定的Loader。如果没有，它将触发`LoaderManager.LoaderCallbacks`方法`onCreateLoader()`。在此方法中，您可以创建新Loader。 通常，这将是`CursorLoader`，但您也可以实现自己的 Loader 子类。
 * `onLoadFinished()`:当先前创建的Loader完成加载时，将调用此方法。该方法必须在为此Loader提供的最后一个数据释放之前调用。 此时，您应移除所有使用的旧数据（因为它们很快会被释放），但不要自行释放这些数据，因为这些数据归其Loader所有，其Loader会处理它们。
 当Loader发现应用不再使用这些数据时，即会释放它们。
 * `onLoaderReset()`:此方法将在先前创建的Loader重置且其数据因此不可用时调用。 通过此回调，您可以了解何时将释放数据，因而能够及时移除其引用。
