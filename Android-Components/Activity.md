@@ -121,3 +121,18 @@ Activity 还可以在其清单文件中指定始终通过使用\<activity\>属�
     * `“never”`:该 Activity 不会为文档创建新任务。设置此值会替代`FLAG_ACTIVITY_NEW_DOCUMENT`和`FLAG_ACTIVITY_MULTIPLE_TASK` 标志的行为（如果在 Intent 中设置了其中一个标志），并且概览屏幕将为应用显示单个任务，该任务将从用户上次调用的任意 Activity 开始继续执行<br><br>
 
 对于除 none 和 never 以外的值，必须使用`launchMode="standard"`定义 Activity。如果未指定此属性，则使用`documentLaunchMode="none"`
+
+#### 删除任务
+默认情况下，在 Activity 结束后，文档任务会从概览屏幕中自动删除。。<br>
+通过将\<activity\>属性`android:excludeFromRecents`设置为 true，您可以始终将任务从概览屏幕中完全排除。<br>
+
+您可以通过将\<activity\>属性`android:maxRecents`设置为整型值，设置应用能够包括在概览屏幕中的最大任务数。默认值为 16。达到最大任务数后，最近最少使用的任务将从概览屏幕中删除。`android:maxRecents`的最大值为 50（内存不足的设备上为 25。<br>
+
+可以通过调用`finishAndRemoveTask()`方法指定何时删除该任务以及结束所有与之相关的 Activity
+
+##### 保留已完成的任务
+* 若要将任务保留在概览屏幕中（即使其 Activity 已完成），可在启动 Activity 的 Intent 的`addFlags()`方法中传递 `FLAG_ACTIVITY_RETAIN_IN_RECENTS`标志。
+``` java 
+newDocumentIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT | android.content.Intent.FLAG_ACTIVITY_RETAIN_IN_RECENTS);
+```
+* \<activity\>属性`android:autoRemoveFromRecents`设置为 false。文档 Activity 的默认值为 true，常规 Activity 的默认值为 false
