@@ -123,7 +123,7 @@ Activity 还可以在其清单文件中指定始终通过使用\<activity\>属�
 对于除 none 和 never 以外的值，必须使用`launchMode="standard"`定义 Activity。如果未指定此属性，则使用`documentLaunchMode="none"`
 
 #### 删除任务
-默认情况下，在 Activity 结束后，文档任务会从概览屏幕中自动删除。。<br>
+默认情况下，在 Activity 结束后，文档任务会从概览屏幕中自动删除。<br>
 通过将\<activity\>属性`android:excludeFromRecents`设置为 true，您可以始终将任务从概览屏幕中完全排除。<br>
 
 您可以通过将\<activity\>属性`android:maxRecents`设置为整型值，设置应用能够包括在概览屏幕中的最大任务数。默认值为 16。达到最大任务数后，最近最少使用的任务将从概览屏幕中删除。`android:maxRecents`的最大值为 50（内存不足的设备上为 25。<br>
