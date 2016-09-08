@@ -119,4 +119,5 @@ Activity 还可以在其清单文件中指定始终通过使用\<activity\>属�
     * `“always”`:使用此值与同时设置`FLAG_ACTIVITY_NEW_DOCUMENT`和`FLAG_ACTIVITY_MULTIPLE_TASK`标志所产生的效果相同<br>
     * `“none”`:为默认方式。该 Activity 不会为文档创建新任务，为应用显示单个任务，该任务将从用户上次调用的任意 Activity 开始继续执行<br>
     * `“never”`:该 Activity 不会为文档创建新任务。设置此值会替代`FLAG_ACTIVITY_NEW_DOCUMENT`和`FLAG_ACTIVITY_MULTIPLE_TASK` 标志的行为（如果在 Intent 中设置了其中一个标志），并且概览屏幕将为应用显示单个任务，该任务将从用户上次调用的任意 Activity 开始继续执行<br><br>
+
 对于除 none 和 never 以外的值，必须使用`launchMode="standard"`定义 Activity。如果未指定此属性，则使用`documentLaunchMode="none"`
