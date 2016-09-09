@@ -11,7 +11,7 @@
  通过添加`android:exported`属性并将其设置为 "false"，确保服务仅适用于您的应用,这可以有效阻止其他应用启动您的服务。
 ### 创建启动Service
 可以扩展两个类来创建启动服务：
-* 扩展 IntentService 类<br>
+* 扩展 IntentService 类<br><br>
 IntentService 执行以下操作：<br>
   * 创建默认的工作线程，用于在应用的主线程外执行传递给`onStartCommand()`的所有 Intent
   * 创建工作队列，用于将一个 Intent 逐一传递给`onHandleIntent()`实现，这样您就永远不必担心多线程问题
