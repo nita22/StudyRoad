@@ -72,7 +72,8 @@ startForeground(ONGOING_NOTIFICATION_ID, notification);
 * 绑定服务
 该服务在另一个组件（客户端）调用`bindService()`时创建。然后，客户端通过 IBinder 接口与服务进行通信。客户端可以通过调用`unbindService()`关闭连接。多个客户端可以绑定到相同服务，而且当所有绑定全部取消后，系统即会销毁该服务。（服务不必自行停止运行。）
 <br>
-
+![](https://developer.android.com/images/service_lifecycle.png)<br>
+#### 实现生命周期回调
 ```java
 public class ExampleService extends Service {
     int mStartMode;       // indicates how to behave if the service is killed
@@ -110,4 +111,4 @@ public class ExampleService extends Service {
 }
 ```
 与 Activity 生命周期回调方法不同，您不需要调用service的生命周期回调方法的超类实现。
-![](https://developer.android.com/images/service_lifecycle.png)
+
