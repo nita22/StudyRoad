@@ -1,5 +1,5 @@
-### Service基础知识
-#### 创建启动Service
+## Service基础知识
+### 创建启动Service
 可以扩展两个类来创建启动服务：
 * 扩展 IntentService 类<br><br>
 IntentService 执行以下操作：<br>
@@ -19,7 +19,7 @@ IntentService 执行以下操作：<br>
   * `START_STICKY`:如果系统在`onStartCommand()`返回后终止服务，则会重建服务并调用`onStartCommand()`，但绝对不会重新传递最后一个 Intent。相反，除非有挂起 Intent 要启动服务（在这种情况下，将传递这些 Intent ），否则系统会通过空 Intent 调用`onStartCommand()`。
   * `START_REDELIVER_INTENT`:如果系统在`onStartCommand()`返回后终止服务，则会重建服务，并通过传递给服务的最后一个 Intent 调用`onStartCommand()`。任何挂起 Intent 均依次传递。
 
-#### 启动Service
+### 启动Service
 可以通过将 Intent（指定要启动的服务）传递给`startService()`，从 Activity 或其他应用组件启动服务。Android 系统调用服务的`onStartCommand()`方法，并向其传递 Intent。
 ``` java 
 Intent intent = new Intent(this, HelloService.class);
@@ -31,23 +31,23 @@ startService(intent);
 
 多个服务启动请求会导致多次对服务的`onStartCommand()`进行相应的调用。但是，要停止服务，只需一个服务停止请求（使用`stopSelf()`或`stopService()`）即可。
 
-#### 停止Service
+### 停止Service
 除非系统必须回收内存资源，否则系统不会停止或销毁服务，而且服务在`onStartCommand()`返回后会继续运行。因此，服务必须通过调用`stopSelf()`自行停止运行，或者由另一个组件通过调用`stopService()`来停止它。
 <br><br>
 一旦请求使用`stopSelf()`或`stopService()`停止服务，系统就会尽快销毁服务。
 <br><br>
 但是，如果服务同时处理多个`onStartCommand()`请求，则您不应在处理完一个启动请求之后停止服务，因为您可能已经收到了新的启动请求（在第一个请求结束时停止服务会终止第二个请求）。为了避免这一问题，您可以调用`stopSelf(int)`时，传递与停止请求的 ID 对应的启动请求的 ID（传递给`onStartCommand()`的 startId） 。然后，如果在您能够调用`stopSelf(int)`之前服务收到了新的启动请求， ID 就不匹配，服务也就不会停止。
 
-#### 创建绑定Service
+### 创建绑定Service
 
-#### 前台服务
+### 前台服务
 要请求让服务运行于前台，请调用`startForeground()`。此方法取两个参数：唯一标识通知的整型数(整型 ID 不得为 0)和状态栏的`Notification`。
 ``` java
 startForeground(ONGOING_NOTIFICATION_ID, notification);
 ```
 要从前台删除服务，请调用`stopForeground()`。使用`stopForeground()`之后，通知会被撤销，当Service销毁（比如stopService()被调用）之后，通知也会被撤销。`stopForeground()`仅仅只是去掉service的foreground属性，并不会让service停止。
 
-#### Service生命周期
+### Service生命周期
 服务生命周期（从创建到销毁）可以遵循两条不同的路径：
 * 启动服务
 该服务在其他组件调用`startService()`时创建，然后无限期运行，且必须通过调用`stopSelf()`来自行停止运行。此外，其他组件也可以通过调用`stopService()`来停止服务。服务停止后，系统会将其销毁。
