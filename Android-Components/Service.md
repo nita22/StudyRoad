@@ -60,7 +60,7 @@ startService(intent);
 ``` java
 startForeground(ONGOING_NOTIFICATION_ID, notification);
 ```
-要从前台删除服务，请调用`stopForeground()`。使用`stopForeground()`之后，通知会被撤销，当Service销毁（比如stopService()被调用）之后，通知也会被撤销。`stopForeground()`仅仅只是去掉service的foreground属性，并不会让service停止。
+要从前台删除服务，请调用`stopForeground()`。使用`stopForeground()`之后，通知会被撤销，当Service销毁（比如`stopService()`被调用）之后，通知也会被撤销。`stopForeground()`仅仅只是去掉service的foreground属性，并不会让service停止。
 
 ### 启动Service与绑定Service的关系
 不管启动方式如何，任何服务均有可能允许客户端与其绑定。因此，最初使用`onStartCommand()`（通过客户端调用 `startService()`）启动的服务仍可接收对`onBind()`的调用（当客户端调用`bindService()`时）。此时，除非所有客户端均取消绑定，否则 `stopService()`或`stopSelf()`不会真正停止服务。
