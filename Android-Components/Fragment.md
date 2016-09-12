@@ -79,5 +79,5 @@ FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 ### Fragment生命周期
 假使 Activity 的进程被终止，而您需要在重建 Activity 时恢复Fragment状态，您也可以使用 Bundle 保留Fragment的状态。您可以在Fragment的 `onSaveInstanceState()`回调期间保存状态，并可在`onCreate()`、`onCreateView()`或`onActivityCreated()`期间恢复状态。<br>
 仅当您在删除Fragment的事务执行期间通过调用`addToBackStack()`显式请求保存实例时，系统才会将Fragment放入由宿主 Activity 管理的返回栈。<br>
-![](https://developer.android.com/images/fragment_lifecycle.png)<br>
-![](https://developer.android.com/images/activity_fragment_lifecycle.png)
+![](https://github.com/nita22/StudyRoad/blob/master/Res/Pic/fragment_lifecycle.png?raw=true)<br>
+![](https://github.com/nita22/StudyRoad/blob/master/Res/Pic/activity_fragment_lifecycle.png?raw=true)
