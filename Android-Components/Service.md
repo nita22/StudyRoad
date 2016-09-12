@@ -49,11 +49,28 @@ startService(intent);
 但是，如果服务同时处理多个`onStartCommand()`请求，则您不应在处理完一个启动请求之后停止服务，因为您可能已经收到了新的启动请求（在第一个请求结束时停止服务会终止第二个请求）。为了避免这一问题，您可以调用`stopSelf(int)`时，传递与停止请求的 ID 对应的启动请求的 ID（传递给`onStartCommand()`的 startId） 。然后，如果在您能够调用`stopSelf(int)`之前服务收到了新的启动请求， ID 就不匹配，服务也就不会停止。
 
 ### 创建绑定Service
-要创建绑定服务，必须实现`onBind()`回调方法以返回`IBinder`，用于定义与服务通信的接口。然后，其他应用组件可以调用`bindService()` 来检索该接口，并开始对服务调用方法。服务只用于与其绑定的应用组件，因此如果没有组件绑定到服务，则系统会销毁服务（您不必按通过 `onStartCommand()`启动的服务那样来停止绑定服务）。<br>
+#### 创建绑定服务
+创建提供绑定的服务时，您必须提供`IBinder`，用以提供客户端用来与服务进行交互的编程接口。 您可以通过三种方法定义接口：<br>
+* [扩展 Binder 类](/nita22/StudyRoad/blob/master/IPC/Binder.md) 
+* [使用 Messenger](/nita22/StudyRoad/blob/master/IPC/Messenger.md) 
+* [使用 AIDL](/nita22/StudyRoad/blob/master/IPC/AIDL.md) 
 
-要创建绑定服务，首先必须定义指定客户端如何与服务通信的接口。 服务与客户端之间的这个接口必须是`IBinder`的实现，并且服务必须从`onBind()` 回调方法返回它。一旦客户端收到`IBinder`，即可开始通过该接口与服务进行交互。
+#### 绑定到服务
+应用组件（客户端）可通过调用`bindService()`绑定到服务。Android 系统随后调用服务的`onBind()`方法，该方法返回用于与服务交互的`IBinder`。
+<br>
+绑定是异步的。`bindService()`会立即返回，不会使`IBinder`返回客户端。要接收`IBinder`，客户端必须创建一个`ServiceConnection` 实例，并将其传递给`bindService()`。
 
-多个客户端可以同时绑定到服务。客户端完成与服务的交互后，会调用`unbindService()`取消绑定。一旦没有客户端绑定到该服务，系统就会销毁它。
+* 1.实现`ServiceConnection`
+您的实现必须重写两个回调方法：<br>
+`onServiceConnected()`:系统会调用该方法以传递服务的　onBind() 方法返回的 IBinder。<br>
+`onServiceDisconnected()`:Android 系统会在与服务的连接意外中断时（例如当服务崩溃或被终止时）调用该方法。当客户端取消绑定时，系统“绝对不会”调用该方法。<br>
+* 2.调用`bindService()`以传递`ServiceConnection`实现<br>
+* 3.当系统调用您的`onServiceConnected()`回调方法时，您可以使用接口定义的方法开始调用服务。
+* 4.调用`unbindService()`断开与服务的连接
+``` java 
+Intent intent = new Intent(this, LocalService.class);
+bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+```
 
 ### 前台服务
 要请求让服务运行于前台，请调用`startForeground()`。此方法取两个参数：唯一标识通知的整型数(整型 ID 不得为 0)和状态栏的`Notification`。
@@ -114,3 +131,6 @@ public class ExampleService extends Service {
 ```
 与 Activity 生命周期回调方法不同，您不需要调用service的生命周期回调方法的超类实现。
 
+#### 绑定服务的生命周期
+如果您的服务已启动并接受绑定，则当系统调用您的`onUnbind()`方法时，如果您想在客户端下一次绑定到服务时接收`onRebind()`调用（而不是接收 `onBind()`调用），则可选择返回 true。`onRebind()`返回空值，但客户端仍在其`onServiceConnected()`回调中接收 IBinder。<br>
+![](https://github.com/nita22/StudyRoad/blob/master/Res/Pic/service_binding_tree_lifecycle.png?raw=true)
