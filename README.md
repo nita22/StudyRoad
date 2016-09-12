@@ -101,9 +101,9 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### 多进程
-* [Binder](/IPC/Binder.md)
-* [Messenger](/IPC/Messenger.md)
-* [AIDL](/IPC/AIDL.md)
+* [Binder](/nita22/StudyRoad/blob/master/IPC/Binder.md)
+* [Messenger](/nita22/StudyRoad/blob/master/IPC/Messenger.md)
+* [AIDL](/nita22/StudyRoad/blob/master/IPC/AIDL.md)
 * Socket
 <br>
 
