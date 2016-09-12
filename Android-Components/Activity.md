@@ -27,7 +27,7 @@ startActivity(intent);
 * Activity 的可见生命周期发生在`onStart()`调用与`onStop()`调用之间。在这段时间，用户可以在屏幕上看到 Activity 并与其交互。 例如，当一个新 Activity 启动，并且此 Activity 不再可见时，系统会调用`onStop()`。您可以在调用这两个方法之间保留向用户显示 Activity 所需的资源。在 Activity 的整个生命周期，当 Activity 在对用户可见和隐藏两种状态中交替变化时，系统可能会多次调用`onStart()`和`onStop()`。<br><br>
 * Activity 的前台生命周期发生在`onResume()`调用与`onPause()`调用之间。在这段时间，Activity 位于屏幕上的所有其他 Activity 之前，并具有用户输入焦点。由于此状态可能经常发生转变，因此这两个方法中应采用适度轻量级的代码，以避免因转变速度慢而让用户等待。
 <br><br>
-![](https://developer.android.com/images/activity_lifecycle.png)
+![Activity生命周期](https://developer.android.com/images/activity_lifecycle.png)
 
 ### 保存 Activity 状态
 * 系统会先调用`onSaveInstanceState()`，然后再使 Activity 变得易于销毁。系统会向该方法传递一个 Bundle，您可以在其中使用`putString()`和 `putInt()`等方法以名称-值对形式保存有关 Activity 状态的信息。然后，如果系统终止您的应用进程，并且用户返回您的 Activity，则系统会重建该 Activity，并将 Bundle 同时传递给 `onCreate()`和`onRestoreInstanceState()`。您可以使用上述任一方法从 Bundle 提取您保存的状态并恢复该 Activity 状态。如果没有状态信息需要恢复，则传递给您的 Bundle 是空值（如果是首次创建该 Activity，就会出现这种情况）。<br><br>
