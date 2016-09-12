@@ -26,7 +26,7 @@ IntentService 执行以下操作：<br>
 需要自行处理对`onStartCommand()`的每次调用<br><br>
 `onStartCommand()`方法必须返回整型数。整型数是一个值，用于描述系统应该如何在服务终止的情况下继续运行服务。从`onStartCommand()`返回的值必须是以下常量之一：<br><br>
   * `START_NOT_STICKY`:如果系统在`onStartCommand()`返回后终止服务，则除非有挂起 Intent 要传递，否则系统不会重建服务。
-  * `START_STICKY`:如果系统在`onStartCommand()`返回后终止服务，则会重建服务并调用`onStartCommand()`，但绝对不会重新传递最后一个 Intent。相反，除非有挂起 Intent 要启动服务（在这种情况下，将传递这些 Intent ），否则系统会通过空 Intent 调用`onStartCommand()`。
+  * `START_STICKY`:sticky服务会持续运行，直到外部组件调用`stopService()`方法让它停止为止
   * `START_REDELIVER_INTENT`:如果系统在`onStartCommand()`返回后终止服务，则会重建服务，并通过传递给服务的最后一个 Intent 调用`onStartCommand()`。任何挂起 Intent 均依次传递。
 
 ### 启动Service
