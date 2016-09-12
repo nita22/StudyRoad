@@ -101,10 +101,9 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### 多进程
-* Binder
-* Bundle
-* Messenger
-* AIDL
+* [Binder](/IPC/Binder.md)
+* [Messenger](/IPC/Messenger.md)
+* [AIDL](/IPC/AIDL.md)
 * Socket
 <br>
 
