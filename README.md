@@ -97,7 +97,7 @@ Java &amp; Android 知识点备忘
 * IntentService
 * HandlerThread
 * ThreadPoolExecutor
-* [Loader](/Threads/Loader.md)
+* [Loader](/nita22/StudyRoad/blob/master/Threads/Loader.md)
 <br>
 
 ### 多进程
