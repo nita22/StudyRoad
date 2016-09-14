@@ -55,7 +55,7 @@ Java &amp; Android 知识点备忘
 
 <br>
 
-* App Widgets
+* [App Widgets](/nita22/StudyRoad/blob/master/User-Interface/App%20Widgets.md)
 <br>
 
 ### Drawable
