@@ -289,4 +289,5 @@ RemoteViewsService.RemoteViewsFactory {
 你可以通过调用AppWidgetManager的`notifyAppWidgetViewDataChanged(int appWidgetId, int viewId)`方法来请求更新。<br>
 调用了该方法之后，系统会对RemoteViewsFactory的`onDataSetChanged()`方法进行回调, 在这里你可以进行最新数据的提取。<br>
 注意:你可以在`onDataSetChanged()`回调函数中做一些耗时工作（同步的）的处理。系统将保证这些操作在从RemoteViewsFactory返回新数据的信息或View之前完成。<br>
-另外, 你可以在`getViewAt()`返回中进行耗时操作的处理。如果`getViewAt()`超过一定的时限，系统就先用RemoteViewsFactory的`getLoadingView()`返回的View进行显示，直到`getViewAt()`完成。
+另外, 你可以在`getViewAt()`返回中进行耗时操作的处理。如果`getViewAt()`超过一定的时限，系统就先用RemoteViewsFactory的`getLoadingView()`返回的View进行显示，直到`getViewAt()`完成。<br>
+![](https://github.com/nita22/StudyRoad/blob/master/Res/Pic/appwidget_collections.png?raw=true)
