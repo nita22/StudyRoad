@@ -199,4 +199,88 @@ finish();
 </appwidget-provider>
 ```
 
-## 使用带Collections的Widget
+## 使用带Collections的App Widgets
+适用于以下Collection Views：`ListView`、`GridView`、`StackView`、`AdapterViewFlipper`<br>
+为了在App Widget中使用Collection View，必须要实现`RemoteViewsService`以及`RemoteViewsFactory`<br>
+`RemoteViewsService`是通过`RemoteViewsFactory`来具体管理layout中集合视图的，而`RemoteViewsFactory`扮演着数据与Collection View之间的Adapter角色。
+
+### 实现带Collections的App Widgets
+#### 在清单文件中声明
+如果要让App Widgets与Service绑定，需要在清单文件中声明`BIND_REMOTEVIEWS`权限
+``` xml
+<service android:name="MyWidgetService"
+...
+android:permission="android.permission.BIND_REMOTEVIEWS" />
+```
+
+#### 设置App Widgets的layout布局
+布局中需要包含Collection Views中之一：`ListView`、`GridView`、`StackView`、`AdapterViewFlipper`
+
+#### 使用AppWidgetProvider类
+需要将指向`RemoteViewsService`实现的Intent以及指定需要更新的app widget ID传入`setRemoteAdapter()`方法来设置Collection Views的数据源。
+``` java
+public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+int[] appWidgetIds) {
+   
+    for (int i = 0; i < appWidgetIds.length; ++i) {
+
+        Intent intent = new Intent(context, StackWidgetService.class);
+      
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
+        intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
+       
+        RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+       
+        rv.setRemoteAdapter(appWidgetIds[i], R.id.stack_view, intent);
+
+        rv.setEmptyView(R.id.stack_view, R.id.empty_view);
+
+        appWidgetManager.updateAppWidget(appWidgetIds[i], rv);
+    }
+    super.onUpdate(context, appWidgetManager, appWidgetIds);
+}
+```
+
+#### 实现`RemoteViewsService`类以及`RemoteViewsFactory`接口
+创建`RemoteViewsService`的子类并且在`RemoteViewsService`的子类中创建内部类实现`RemoteViewsFactory`接口<br>
+要实现`RemoteViewsFactory`接口，需要实现`onCreate()`和`getViewAt()`。<br>
+当第一次创建`RemoteViewsFactory`时会调用`onCreate()`方法，因此可以在`onCreate()`方法中初始化数据源。<br>
+通过`getViewAt()`来获取Collection Views中的第position项的视图，视图是以`RemoteViews`的对象返回的。 
+``` java
+class StackRemoteViewsFactory implements
+RemoteViewsService.RemoteViewsFactory {
+    private static final int mCount = 10;
+    private List<WidgetItem> mWidgetItems = new ArrayList<WidgetItem>();
+    private Context mContext;
+    private int mAppWidgetId;
+
+    public StackRemoteViewsFactory(Context context, Intent intent) {
+        mContext = context;
+        mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                AppWidgetManager.INVALID_APPWIDGET_ID);
+    }
+
+    public void onCreate() {
+        
+        for (int i = 0; i < mCount; i++) {
+            mWidgetItems.add(new WidgetItem(i + "!"));
+        }
+        ...
+    }
+    
+    public RemoteViews getViewAt(int position) {
+
+    RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.widget_item);
+    rv.setTextViewText(R.id.widget_item, mWidgetItems.get(position).text);
+
+    return rv;
+    }
+}
+```
+
+#### 添加独立行为
+* 1.设置Collection Views的点击响应事件的“Intent模板” <br>
+这是通过`setPendingIntentTemplate()`来进行设置的。这样做的目的有两个：首先，设置Intent模板。因为Collection Views有许多子项，它们这些子项都统一的要响应父亲的Intent模板。其次，传递附件参数(例如，App Widget的ID)，因为App Widget可以设置许多widget，每一个Widget的ID都不同，而且它们显示的内容可能不同。 <br>
+* 2.设置Collection Views子项的点击响应事件的Intent<br>
+设置通过`setOnClickFillInIntent()`来进行设置的。这样做的首要目的，是设置Collection Views的子项所包含的信息 (例如，点击的 GridView子项的索引值 )。 <br>
+通过这两步的设置之后，点击Collection Views中具体每一项的所产生的事件就是 “第一”和“第二”步中Intent的合集(组合) 。也就是说， 点击“Collection Views中某一个子项”所产生的Intent，同时包含了“通过 setPendingIntentTemplate 传递的Intent数据”和“通过 setOnClickFillInIntent 传递的Intent数据” 。
