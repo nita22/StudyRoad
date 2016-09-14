@@ -206,7 +206,7 @@ finish();
 
 ### 实现带Collections的App Widgets
 #### 在清单文件中声明
-如果要让App Widgets与Service绑定，需要在清单文件中声明`BIND_REMOTEVIEWS`权限
+如果要让App Widgets与RemoteViewsService绑定，需要在清单文件中声明`BIND_REMOTEVIEWS`权限
 ``` xml
 <service android:name="MyWidgetService"
 ...
