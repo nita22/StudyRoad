@@ -12,7 +12,6 @@ Java &amp; Android 知识点备忘
 #### [Intent](/Android-Components/Intent.md)
 #### [Fragement](/Android-Components/Fragment.md)
 <br>
-
 ### View
 * View工作过程
 * View事件分发机制
@@ -56,7 +55,7 @@ Java &amp; Android 知识点备忘
 
 <br>
 
-* RemoteViews
+* App Widgets
 <br>
 
 ### Drawable
