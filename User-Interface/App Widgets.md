@@ -103,3 +103,36 @@ AppWidgetProvider中的广播处理函数如下：<br>
 
 * `onReceive(Context, Intent)`<br>
   接收到任意广播时触发，并且会在上述的方法之前被调用。通常不用实现该方法。
+
+``` java
+public class ExampleAppWidgetProvider extends AppWidgetProvider {
+
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        final int N = appWidgetIds.length;
+
+        for (int i=0; i<N; i++) {
+            int appWidgetId = appWidgetIds[i];
+
+            Intent intent = new Intent(context, ExampleActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.appwidget_provider_layout);
+            views.setOnClickPendingIntent(R.id.button, pendingIntent);
+
+            appWidgetManager.updateAppWidget(appWidgetId, views);
+        }
+    }
+}
+```
+
+如果在`onUpdate()`中需要处理耗时的任务，需要在`onUpdate()`中新建Service去完成耗时的任务，避免出现ANR问题
+
+#### 自行处理App Widget的广播
+可以自行继承`BroadcastReceiver`并实现`onReceive()`方法，需要注意以下intent
+* ACTION_APPWIDGET_UPDATE
+* ACTION_APPWIDGET_DELETED
+* ACTION_APPWIDGET_ENABLED
+* ACTION_APPWIDGET_DISABLED
+* ACTION_APPWIDGET_OPTIONS_CHANGED
+
+### 创建App Widget配置Activity
