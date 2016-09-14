@@ -1,7 +1,7 @@
 ## 使用App Widgets
 ### 在清单文件中声明
 `AppWidgetProvider`为`BroadcastReceiver`的子类，需要在清单文件中声明。
-``` java
+``` xml
 <receiver android:name="ExampleAppWidgetProvider" >
     <intent-filter>
         <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -16,7 +16,7 @@
 
 ### 添加`AppWidgetProviderInfo`数据
 在res/xml/下新建xml文件，在其中定义小部件配置信息
-``` java
+``` xml
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:minWidth="40dp"
     android:minHeight="40dp"
@@ -136,3 +136,67 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 * ACTION_APPWIDGET_OPTIONS_CHANGED
 
 ### 创建App Widget配置Activity
+#### 在清单文件中声明
+\<action\>中需要指明`android:name="android.appwidget.action.APPWIDGET_CONFIGURE"`来接收Intent
+``` xml
+<activity android:name=".ExampleAppWidgetConfigure">
+    <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+    </intent-filter>
+</activity>
+```
+
+#### 在`AppWidgetProviderInfo`数据声明
+`android:configure`中需要使用全称，因为有可能会被外部组件引用
+``` xml
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    ...
+    android:configure="com.example.android.ExampleAppWidgetConfigure"
+    ... >
+</appwidget-provider>
+```
+
+#### 利用配置Activity更新App Widget
+* 从Intent中获取 App Widget ID
+``` java
+Intent intent = getIntent();
+Bundle extras = intent.getExtras();
+if (extras != null) {
+    mAppWidgetId = extras.getInt(
+            AppWidgetManager.EXTRA_APPWIDGET_ID,
+            AppWidgetManager.INVALID_APPWIDGET_ID);
+}
+```
+
+* 配置好App Widget的内容
+* 配置完成后，获取`AppWidgetManager`的实例
+``` java
+AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+```
+* 利用`updateAppWidget(int, RemoteViews)`方法更新App Widget
+``` java
+RemoteViews views = new RemoteViews(context.getPackageName(),
+R.layout.example_appwidget);
+appWidgetManager.updateAppWidget(mAppWidgetId, views);
+```
+
+* 创建返回的Intent，并结束Activity
+``` java
+Intent resultValue = new Intent();
+resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
+setResult(RESULT_OK, resultValue);
+finish();
+```
+
+当配置Activity第一次打开时，需要把返回的结果设置为 RESULT_CANCELED，避免在配置过程中出现错误而照样更新App Widget。
+
+### 设置预览图片
+如没有指定`android:previewImage`属性，系统则会利用App的图标作为预览图
+``` xml
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+  ...
+  android:previewImage="@drawable/preview">
+</appwidget-provider>
+```
+
+## 使用带Collections的Widget
