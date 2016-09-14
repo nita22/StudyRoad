@@ -55,7 +55,7 @@ Java &amp; Android 知识点备忘
 
 <br>
 
-* [App Widgets](/nita22/StudyRoad/blob/master/User-Interface/App%20Widgets.md)
+* [App Widgets](/User-Interface/App%20Widgets.md)
 <br>
 
 ### Drawable
@@ -96,13 +96,13 @@ Java &amp; Android 知识点备忘
 * IntentService
 * HandlerThread
 * ThreadPoolExecutor
-* [Loader](/nita22/StudyRoad/blob/master/Threads/Loader.md)
+* [Loader](/Threads/Loader.md)
 <br>
 
 ### 多进程
-* [Binder](/nita22/StudyRoad/blob/master/IPC/Binder.md)
-* [Messenger](/nita22/StudyRoad/blob/master/IPC/Messenger.md)
-* [AIDL](/nita22/StudyRoad/blob/master/IPC/AIDL.md)
+* [Binder](/IPC/Binder.md)
+* [Messenger](/IPC/Messenger.md)
+* [AIDL](/IPC/AIDL.md)
 * Socket
 <br>
 
