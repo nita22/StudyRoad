@@ -283,4 +283,10 @@ RemoteViewsService.RemoteViewsFactory {
 这是通过`setPendingIntentTemplate()`来进行设置的。这样做的目的有两个：首先，设置Intent模板。因为Collection Views有许多子项，它们这些子项都统一的要响应父亲的Intent模板。其次，传递附件参数(例如，App Widget的ID)，因为App Widget可以设置许多widget，每一个Widget的ID都不同，而且它们显示的内容可能不同。 <br>
 * 2.设置Collection Views子项的点击响应事件的Intent<br>
 设置通过`setOnClickFillInIntent()`来进行设置的。这样做的首要目的，是设置Collection Views的子项所包含的信息 (例如，点击的 GridView子项的索引值 )。 <br>
-通过这两步的设置之后，点击Collection Views中具体每一项的所产生的事件就是 “第一”和“第二”步中Intent的合集(组合) 。也就是说， 点击“Collection Views中某一个子项”所产生的Intent，同时包含了“通过 setPendingIntentTemplate 传递的Intent数据”和“通过 setOnClickFillInIntent 传递的Intent数据” 。
+通过这两步的设置之后，点击Collection Views中具体每一项的所产生的事件就是 “第一”和“第二”步中Intent的合集(组合) 。也就是说， 点击“Collection Views中某一个子项”所产生的Intent，同时包含了“通过`setPendingIntentTemplate()`传递的Intent数据”和“通过 `setOnClickFillInIntent()`传递的Intent数据” 。
+
+### 数据更新
+你可以通过调用AppWidgetManager的`notifyAppWidgetViewDataChanged(int appWidgetId, int viewId)`方法来请求更新。<br>
+调用了该方法之后，系统会对RemoteViewsFactory的`onDataSetChanged()`方法进行回调, 在这里你可以进行最新数据的提取。<br>
+注意:你可以在`onDataSetChanged()`回调函数中做一些耗时工作（同步的）的处理。系统将保证这些操作在从RemoteViewsFactory返回新数据的信息或View之前完成。<br>
+另外, 你可以在`getViewAt()`返回中进行耗时操作的处理。如果`getViewAt()`超过一定的时限，系统就先用RemoteViewsFactory的`getLoadingView()`返回的View进行显示，直到`getViewAt()`完成。
