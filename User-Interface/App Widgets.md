@@ -85,14 +85,12 @@ AppWidgetProvider中的广播处理函数如下：<br>
 * `onUpdate()`<br>
   当 widget 更新时被执行。同样，当用户首次添加 widget 时，onUpdate() 也会被调用，这样 widget 就能进行必要的设置工作(如果需要的话) 。但是，如果定义了 widget 的 configure属性(即android:configure)，那么当用户首次添加 widget 时，onUpdate()不会被调用；之后更新 widget 时，onUpdate才会被调用。
 
-<br>
 * `onAppWidgetOptionsChanged()`<br>
   当 widget 被初次添加 或者 当 widget 的大小被改变时，执行`onAppWidgetOptionsChanged()`。你可以在该函数中，根据 widget 的大小来显示/隐藏某些内容。可以通过`getAppWidgetOptions()`来返回 Bundle 对象以读取 widget 的大小信息，Bundle中包括以下信息：
   `OPTION_APPWIDGET_MIN_WIDTH` -- 包含 widget 当前宽度的下限，以dp为单位。
   `OPTION_APPWIDGET_MIN_HEIGHT` -- 包含 widget 当前高度的下限，以dp为单位。
   `OPTION_APPWIDGET_MAX_WIDTH` -- 包含 widget 当前宽度的上限，以dp为单位。
   `OPTION_APPWIDGET_MAX_HEIGHT` -- 包含 widget 当前高度的上限，以dp为单位。
-<br>
 
 * `onDeleted(Context, int[])`<br>
   当 widget 被删除时被触发。
