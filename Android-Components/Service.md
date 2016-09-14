@@ -51,9 +51,9 @@ startService(intent);
 ### 创建绑定Service
 #### 创建绑定服务
 创建提供绑定的服务时，您必须提供`IBinder`，用以提供客户端用来与服务进行交互的编程接口。 您可以通过三种方法定义接口：<br>
-* [扩展 Binder 类](/nita22/StudyRoad/blob/master/IPC/Binder.md) 
-* [使用 Messenger](/nita22/StudyRoad/blob/master/IPC/Messenger.md) 
-* [使用 AIDL](/nita22/StudyRoad/blob/master/IPC/AIDL.md) 
+* [扩展 Binder 类](/IPC/Binder.md) 
+* [使用 Messenger](/IPC/Messenger.md) 
+* [使用 AIDL](/IPC/AIDL.md) 
 
 #### 绑定到服务
 应用组件（客户端）可通过调用`bindService()`绑定到服务。Android 系统随后调用服务的`onBind()`方法，该方法返回用于与服务交互的`IBinder`。
