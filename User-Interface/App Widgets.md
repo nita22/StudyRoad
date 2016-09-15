@@ -351,7 +351,7 @@ startActivityForResult(intent, REQUEST_BIND_APPWIDGET);
 * 还需要在添加小部件之前检查小部件是否需要配置
 
 ### App Widget Host的作用
-* （1）监听来自`AppWidgetService`的事件，这是主要处理`updat`e和`provider_changed`两个事件,根据这两个事件更新widget。
+* （1）监听来自`AppWidgetService`的事件，这是主要处理`update`和`provider_changed`两个事件,根据这两个事件更新widget。
 ``` java 
     class UpdateHandler extends Handler {
         public UpdateHandler(Looper looper) {
