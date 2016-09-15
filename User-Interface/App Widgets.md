@@ -291,3 +291,62 @@ RemoteViewsService.RemoteViewsFactory {
 注意:你可以在`onDataSetChanged()`回调函数中做一些耗时工作（同步的）的处理。系统将保证这些操作在从RemoteViewsFactory返回新数据的信息或View之前完成。<br>
 另外, 你可以在`getViewAt()`返回中进行耗时操作的处理。如果`getViewAt()`超过一定的时限，系统就先用RemoteViewsFactory的`getLoadingView()`返回的View进行显示，直到`getViewAt()`完成。<br>
 ![](https://github.com/nita22/StudyRoad/blob/master/Res/Pic/appwidget_collections.png?raw=true)
+
+## App Widget Host
+###　绑定App Widgets
+#### Android4.0及以下版本
+通过系统的Activity来允许用户选择一个小部件添加到应用程序部件。其中用户被隐性授予权限，将您的应用程序小部件添加到主机
+``` java
+private static final int REQUEST_CREATE_APPWIDGET = 5;
+private static final int REQUEST_PICK_APPWIDGET = 9;
+...
+int appWidgetId = Launcher.this.mAppWidgetHost.allocateAppWidgetId();
+Intent pickIntent = new Intent(AppWidgetManager.ACTION_APPWIDGET_PICK);
+pickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+...
+startActivityForResult(pickIntent, REQUEST_PICK_APPWIDGET);
+```
+当系统的Activity结束之后，会返回带有用户选择的小部件的result，因此可以在`onActivityResult()`中接收result。
+``` java
+public final class Launcher extends Activity
+        implements View.OnClickListener, OnLongClickListener {
+    ...
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        mWaitingForResult = false;
+
+        if (resultCode == RESULT_OK && mAddItemCellInfo != null) {
+            switch (requestCode) {
+                ...
+                case REQUEST_PICK_APPWIDGET:
+                    addAppWidget(data);
+                    break;
+                case REQUEST_CREATE_APPWIDGET:
+                    completeAddAppWidget(data, mAddItemCellInfo, !mDesktopLocked);
+                    break;
+                }
+        }
+        ...
+    }
+}
+```
+
+#### Android4.1及以上版本
+* 需要在清单文件中声明`BIND_APPWIDGET`权限
+``` xml
+<uses-permission android:name="android.permission.BIND_APPWIDGET" />
+```
+
+* 必须在运行时检测是否有添加小部件的权限
+使用`bindAppWidgetIdIfAllowed()`方法来检查是否有添加小部件的权限，若`bindAppWidgetIdIfAllowed()`返回false，则需要提醒用户赋予权限。例子代码如下：
+``` java
+Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_BIND);
+intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, info.componentName);
+// This is the options bundle discussed above
+intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_OPTIONS, options);
+startActivityForResult(intent, REQUEST_BIND_APPWIDGET);
+```
+
+* 还需要在添加小部件之前检查小部件是否需要配置
+
