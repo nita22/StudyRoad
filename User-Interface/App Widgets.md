@@ -373,6 +373,7 @@ startActivityForResult(intent, REQUEST_BIND_APPWIDGET);
     }
 ```
 * （2）另外一个功能就是创建`AppWidgetHostView`。RemoteViews不是真正的View，而`AppWidgetHostView`才是真正的View。这里先创建`AppWidgetHostView`，然后通过`AppWidgetService`查询appWidgetId对应的RemoteViews，最后把RemoteViews传递给`AppWidgetHostView`去updateAppWidget。
+
  ``` java
     protected AppWidgetHostView onCreateView(Context context, int appWidgetId,
             AppWidgetProviderInfo appWidget) {
