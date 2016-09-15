@@ -350,3 +350,55 @@ startActivityForResult(intent, REQUEST_BIND_APPWIDGET);
 
 * 还需要在添加小部件之前检查小部件是否需要配置
 
+### App Widget Host的作用
+* （1）监听来自`AppWidgetService`的事件，这是主要处理`updat`e和`provider_changed`两个事件,根据这两个事件更新widget。
+``` java 
+    class UpdateHandler extends Handler {
+        public UpdateHandler(Looper looper) {
+            super(looper);
+        }
+       
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case HANDLE_UPDATE: {//更新事件
+                    updateAppWidgetView(msg.arg1, (RemoteViews)msg.obj);
+                    break;
+                }
+                case HANDLE_PROVIDER_CHANGED: {//升级事件
+                    onProviderChanged(msg.arg1, (AppWidgetProviderInfo)msg.obj);
+                    break;
+                }
+            }
+        }
+    }
+```
+* （2）另外一个功能就是创建`AppWidgetHostView`。RemoteViews不是真正的View，而`AppWidgetHostView`才是真正的View。这里先创建`AppWidgetHostView`，然后通过`AppWidgetService`查询appWidgetId对应的RemoteViews，最后把RemoteViews传递给`AppWidgetHostView`去updateAppWidget。
+ ``` java
+    protected AppWidgetHostView onCreateView(Context context, int appWidgetId,
+            AppWidgetProviderInfo appWidget) {
+        return new AppWidgetHostView(context);
+    }
+```
+
+更新和升级AppWidget实现：通过appWidgetId,获得相应的`AppWidgetHostView`。
+``` java
+    protected void onProviderChanged(int appWidgetId, AppWidgetProviderInfo appWidget) {
+        AppWidgetHostView v;
+        synchronized (mViews) {
+            v = mViews.get(appWidgetId);
+        }
+        if (v != null) {
+            v.updateAppWidget(null, AppWidgetHostView.UPDATE_FLAGS_RESET);
+        }
+    }
+
+    void updateAppWidgetView(int appWidgetId, RemoteViews views) {
+        AppWidgetHostView v;
+        synchronized (mViews) {
+            v = mViews.get(appWidgetId);
+        }
+        if (v != null) {
+            v.updateAppWidget(views, 0);
+        }
+    }
+```
