@@ -6,7 +6,10 @@ Provider的应用可以指定其他应用访问Provider的数据所必需的权�
 ### 内容 URI
 内容 URI 是用于在Provider中标识数据的 URI。内容 URI 包括整个Provider的符号名称（其权限）和一个指向表的名称（路径）。 当您调用客户端方法来访问Provider中的表时，该表的内容 URI 将是其参数之一。<br>
 ContentProvider 使用内容 URI 的路径部分来选择要访问的表。 Provider通常会为其公开的每个表显示一条路径。<br>
-在检索到一组行后想要更新或删除其中某一行时通常会用到 ID 值，而ContentUris 包含一些可以将 ID 值轻松追加到 URI 后的方法，例如可以使用`withAppendedId()`将 ID 追加到用户字典内容 URI 后。
+在检索到一组行后想要更新或删除其中某一行时通常会用到 ID 值，而ContentUris 包含一些可以将 ID 值轻松追加到 URI 后的方法，例如可以使用`withAppendedId()`将 ID 追加到用户字典内容 URI 后。<br><br>
+内容 URI 模式使用通配符匹配内容 URI：<br>
+*：匹配由任意长度的任何有效字符组成的字符串<br>
+\#：匹配由任意长度的数字字符组成的字符串
 
 ### 从Content Provider检索数据
 要从provider中检索数据，请按照以下基本步骤执行操作：<br>
