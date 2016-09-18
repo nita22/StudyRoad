@@ -101,6 +101,29 @@ mRowsDeleted = getContentResolver().delete(
     mSelectionArgs                      // the value to compare to
 );
 ```
+
+### 提供程序访问的替代形式
+* 批量访问：<br>
+批量访问提供程序适用于插入大量行，或通过同一方法调用在多个表中插入行，或者通常用于跨进程界限将一组操作作为事务处理（原子操作）执行。
+<br>
+要在“批量模式”下访问提供程序， 您可以创建`ContentProviderOperation`对象数组，然后使用`ContentResolver.applyBatch()` 将其分派给内容提供程序。 您需将内容提供程序的授权传递给此方法，而不是特定内容 URI。这样可使数组中的每个`ContentProviderOperation` 对象都能适用于其他表。 调用`ContentResolver.applyBatch()`会返回结果数组。
+<br>
+
+* 异步查询：<br>
+应该在单独线程中执行查询。执行此操作的方式之一是使用`CursorLoader`对象。
+<br>
+
+* 通过 Intent 访问数据：<br>
+Intent 可以提供对内容提供程序的间接访问。即使您的应用不具备访问权限，您也可以通过以下方式允许用户访问提供程序中的数据：从具有权限的应用中获取回结果 Intent，或者通过激活具有权限的应用，然后让用户在其中工作。<br>
+    * 通过临时权限获取访问权限
+    将 Intent 发送至具有权限的应用，然后接收回包含“URI”权限的结果 Intent。 这些是特定内容 URI 的权限，将持续至接收该权限的 Activity 结束。<br>
+    具有永久权限的应用将通过在结果 Intent 中设置标志来授予临时权限：<br>
+    读取权限：`FLAG_GRANT_READ_URI_PERMISSION` <br>
+    写入权限：`FLAG_GRANT_WRITE_URI_PERMISSION`<br>
+    提供程序使用 <provider> 元素的`android:grantUriPermission`属性以及 <provider> 元素的`<grant-uri-permission>` 子元素在其清单文件中定义内容 URI 的 URI 权限。
+    * 使用其他应用
+    允许用户修改您无权访问的数据的简单方法是激活具有权限的应用，让用户在其中执行工作。
+
 ### 提供程序数据类型
 * 文本
 * int
@@ -110,8 +133,14 @@ mRowsDeleted = getContentResolver().delete(
 * BLOB
 * MIME
 
+#### MIME类型引用
 可以使用 MIME 类型信息查明应用是否可以处理提供程序提供的数据，或根据 MIME 类型选择处理类型。 在使用包含复杂数据结构或文件的提供程序时，通常需要 MIME 类型。 <br>
-要获取与内容 URI 对应的 MIME 类型，请调用`ContentResolver.getType()`。
+要获取与内容 URI 对应的 MIME 类型，请调用`ContentResolver.getType()`。<br><br>
+内容提供程序可以返回标准 MIME 媒体类型和/或自定义 MIME 类型字符串。<br>
+MIME 类型具有格式: `type/subtype`<br><br>
+自定义 MIME 类型字符串具有更加复杂的类型和子类型值。类型值始终为:<br>
+`vnd.android.cursor.dir` (多行)<br>
+`vnd.android.cursor.item` (单行)
 
 ### 防止恶意输入
 可使用一个用于将`?`作为可替换参数的选择子句以及一个单独的选择参数数组。 执行此操作时，用户输入直接受查询约束，而不解释为 SQL 语句的一部分。 由于用户输入未作为 SQL 处理，因此无法注入恶意 SQL。
