@@ -123,7 +123,6 @@ Intent 可以提供对Content Provider的间接访问。即使您的应用不具
     具有永久权限的应用将通过在结果 Intent 中设置标志来授予临时权限：<br>
     读取权限：`FLAG_GRANT_READ_URI_PERMISSION` <br>
     写入权限：`FLAG_GRANT_WRITE_URI_PERMISSION`<br>
-    Provider使用 <provider> 元素的`android:grantUriPermission`属性以及 <provider> 元素的`<grant-uri-permission>` 子元素在其清单文件中定义内容 URI 的 URI 权限。
     * 使用其他应用 <br>
     允许用户修改您无权访问的数据的简单方法是激活具有权限的应用，让用户在其中执行工作。
 
