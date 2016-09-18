@@ -140,10 +140,13 @@ Intent 可以提供对Content Provider的间接访问。即使您的应用不具
 可以使用 MIME 类型信息查明应用是否可以处理Provider提供的数据，或根据 MIME 类型选择处理类型。 在使用包含复杂数据结构或文件的Provider时，通常需要 MIME 类型。 <br>
 要获取与内容 URI 对应的 MIME 类型，请调用`ContentResolver.getType()`。<br><br>
 Content Provider可以返回标准 MIME 媒体类型和/或自定义 MIME 类型字符串。<br>
-MIME 类型具有格式: `type/subtype`<br><br>
-自定义 MIME 类型字符串具有更加复杂的类型和子类型值。类型值始终为:<br>
-`vnd.android.cursor.dir` (多行)<br>
-`vnd.android.cursor.item` (单行)
+对于指向一个或多个表数据行的内容 URI，`getType()`应该以 Android 供应商特有 MIME 格式返回 MIME 类型：<br>
+类型部分：vnd<br>
+子类型部分：<br>
+如果 URI 模式用于单个行：android.cursor.item/<br>
+如果 URI 模式用于多个行：android.cursor.dir/<br>
+提供程序特有部分：vnd.\<name\>.\<type\><br>
+您提供\<name\> 和\<type\>。\<name\> 值应具有全局唯一性，\<type\> 值应在对应的 URI 模式中具有唯一性。适合选择贵公司的名称或您的应用 Android 软件包名称的某个部分作为\<name\>。 适合选择 URI 关联表的标识字符串作为\<type\>。<br>
 
 ### 防止恶意输入
 可使用一个用于将`?`作为可替换参数的选择子句以及一个单独的选择参数数组。 执行此操作时，用户输入直接受查询约束，而不解释为 SQL 语句的一部分。 由于用户输入未作为 SQL 处理，因此无法注入恶意 SQL。
