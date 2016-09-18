@@ -115,13 +115,13 @@ mRowsDeleted = getContentResolver().delete(
 
 * 通过 Intent 访问数据：<br>
 Intent 可以提供对内容提供程序的间接访问。即使您的应用不具备访问权限，您也可以通过以下方式允许用户访问提供程序中的数据：从具有权限的应用中获取回结果 Intent，或者通过激活具有权限的应用，然后让用户在其中工作。<br>
-    * 通过临时权限获取访问权限
+    * 通过临时权限获取访问权限 <br>
     将 Intent 发送至具有权限的应用，然后接收回包含“URI”权限的结果 Intent。 这些是特定内容 URI 的权限，将持续至接收该权限的 Activity 结束。<br>
     具有永久权限的应用将通过在结果 Intent 中设置标志来授予临时权限：<br>
     读取权限：`FLAG_GRANT_READ_URI_PERMISSION` <br>
     写入权限：`FLAG_GRANT_WRITE_URI_PERMISSION`<br>
     提供程序使用 <provider> 元素的`android:grantUriPermission`属性以及 <provider> 元素的`<grant-uri-permission>` 子元素在其清单文件中定义内容 URI 的 URI 权限。
-    * 使用其他应用
+    * 使用其他应用 <br>
     允许用户修改您无权访问的数据的简单方法是激活具有权限的应用，让用户在其中执行工作。
 
 ### 提供程序数据类型
