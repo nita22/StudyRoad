@@ -1,11 +1,4 @@
 ## Content Provider基础知识
-### 内容 URI
-内容 URI 是用于在Provider中标识数据的 URI。内容 URI 包括整个Provider的符号名称（其权限）和一个指向表的名称（路径）。 当您调用客户端方法来访问Provider中的表时，该表的内容 URI 将是其参数之一。<br>
-ContentProvider 使用内容 URI 的路径部分来选择要访问的表。 Provider通常会为其公开的每个表显示一条路径。<br>
-在检索到一组行后想要更新或删除其中某一行时通常会用到 ID 值，而ContentUris 包含一些可以将 ID 值轻松追加到 URI 后的方法，例如可以使用`withAppendedId()`将 ID 追加到用户字典内容 URI 后。`UriMatcher`类的方法`addURI()` 会将权限和路径映射到一个整型值，而方法`match()`会返回 URI 的整型值。<br><br>
-内容 URI 模式使用通配符匹配内容 URI：<br>
-*：匹配由任意长度的任何有效字符组成的字符串<br>
-\#：匹配由任意长度的数字字符组成的字符串
 
 ### 实现`ContentProvider`类
 抽象类`ContentProvider`定义了六个抽象方法，您必须将这些方法作为自己具体子类的一部分加以实现。<br>
@@ -144,6 +137,15 @@ Intent 可以提供对Content Provider的间接访问。即使您的应用不具
   如果此标志设置为 false，则您必须向\<provider\>元素添加\<grant-uri-permission\> 子元素。每个子元素都指定授予的临时权限所对应的一个或多个内容 URI。<br>
 
   要向应用授予临时访问权限， Intent 必须包含`FLAG_GRANT_READ_URI_PERMISSION`和（或）`FLAG_GRANT_WRITE_URI_PERMISSION`标志。它们通过 `setFlags()`方法进行设置。
+  
+### 内容 URI
+内容 URI 是用于在Provider中标识数据的 URI。内容 URI 包括整个Provider的符号名称（其权限）和一个指向表的名称（路径）。 当您调用客户端方法来访问Provider中的表时，该表的内容 URI 将是其参数之一。<br>
+ContentProvider 使用内容 URI 的路径部分来选择要访问的表。 Provider通常会为其公开的每个表显示一条路径。<br>
+在检索到一组行后想要更新或删除其中某一行时通常会用到 ID 值，而ContentUris 包含一些可以将 ID 值轻松追加到 URI 后的方法，例如可以使用`withAppendedId()`将 ID 追加到用户字典内容 URI 后。`UriMatcher`类的方法`addURI()` 会将权限和路径映射到一个整型值，而方法`match()`会返回 URI 的整型值。<br><br>
+内容 URI 模式使用通配符匹配内容 URI：<br>
+*：匹配由任意长度的任何有效字符组成的字符串<br>
+\#：匹配由任意长度的数字字符组成的字符串
+
 
 ### Provider数据类型
 * 文本
