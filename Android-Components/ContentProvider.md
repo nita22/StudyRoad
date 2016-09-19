@@ -11,6 +11,15 @@ ContentProvider 使用内容 URI 的路径部分来选择要访问的表。 Prov
 *：匹配由任意长度的任何有效字符组成的字符串<br>
 \#：匹配由任意长度的数字字符组成的字符串
 
+### 实现`ContentProvider`类
+抽象类`ContentProvider`定义了六个抽象方法，您必须将这些方法作为自己具体子类的一部分加以实现。<br>
+所有这些方法（onCreate() 除外）都可由多个线程同时调用，因此它们必须是线程安全方法。<br>
+* 实现`query()`方法
+* 实现`insert()`方法
+* 实现`delete()`方法
+* 实现`update()`方法
+* 实现`onCreate()`方法
+
 ### 从Content Provider检索数据
 要从provider中检索数据，请按照以下基本步骤执行操作：<br>
 * 1.请求对provider的读取访问权限。
