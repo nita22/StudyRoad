@@ -1,8 +1,4 @@
 ## Content Provider基础知识
-### Content Provider权限
-Provider的应用可以指定其他应用访问Provider的数据所必需的权限。 这些权限可确保用户了解应用将尝试访问的数据。<br> 要获取访问Provider所需的权限，应用将通过其清单文件中的`<uses-permission>`元素来请求这些权限。<br><br>
-如果Provider的应用未指定任何权限，则其他应用将无权访问Provider的数据。 但是，无论指定权限为何，Provider的应用中的组件始终具有完整的读取和写入访问权限。
-
 ### 内容 URI
 内容 URI 是用于在Provider中标识数据的 URI。内容 URI 包括整个Provider的符号名称（其权限）和一个指向表的名称（路径）。 当您调用客户端方法来访问Provider中的表时，该表的内容 URI 将是其参数之一。<br>
 ContentProvider 使用内容 URI 的路径部分来选择要访问的表。 Provider通常会为其公开的每个表显示一条路径。<br>
@@ -134,6 +130,20 @@ Intent 可以提供对Content Provider的间接访问。即使您的应用不具
     写入权限：`FLAG_GRANT_WRITE_URI_PERMISSION`<br>
     * 使用其他应用 <br>
     允许用户修改您无权访问的数据的简单方法是激活具有权限的应用，让用户在其中执行工作。
+
+### Content Provider权限
+在默认情况下，您的提供程序未设置权限。可以使用属性或\<provider\>元素的子元素在您的清单文件中为您的提供程序设置权限。
+* 统一读写提供程序级别权限<br>
+  一个同时控制对整个提供程序读取和写入访问的权限，通过\<provider\>元素的`android:permission`属性指定。<br><br>
+* 单独的读取和写入提供程序级别权限<br>
+  针对整个提供程序的读取权限和写入权限。可以通过\<provider\>元素的`android:readPermission`属性和`android:writePermission`属性 指定它们。它们优先于`android:permission`所需的权限。<br><br>
+* 路径级别权限<br>
+  针对提供程序中内容 URI 的读取、写入或读取/写入权限。可以通过\<provider\>元素的\<path-permission\>子元素指定想控制的每个 URI。 对于指定的每个内容 URI，都可以指定读取/写入权限、读取权限或写入权限，或同时指定所有三种权限。 读取权限和写入权限优先于读取/写入权限。 此外，路径级别权限优先于提供程序级别权限。<br><br>
+* 临时权限<br>
+  一种权限级别，即使应用不具备通常需要的权限，该级别也能授予对应用的临时访问权限。 要想启用临时权限，请设置\<provider\>元素的 `android:grantUriPermissions`属性，或者向您的\<provider\>元素添加一个或多个\<grant-uri-permission\> 子元素。如果您使用了临时权限，则每当您从提供程序中移除对某个内容 URI 的支持，并且该内容 URI 关联了临时权限时，都需要调用 `Context.revokeUriPermission()`。如果`android:grantUriPermissions`属性设置为 true，则系统会向整个提供程序授予临时权限，该权限将替代您的提供程序级别或路径级别权限所需的任何其他权限。
+  如果此标志设置为 false，则您必须向\<provider\>元素添加\<grant-uri-permission\> 子元素。每个子元素都指定授予的临时权限所对应的一个或多个内容 URI。<br>
+
+  要向应用授予临时访问权限， Intent 必须包含`FLAG_GRANT_READ_URI_PERMISSION`和（或）`FLAG_GRANT_WRITE_URI_PERMISSION`标志。它们通过 `setFlags()`方法进行设置。
 
 ### Provider数据类型
 * 文本
