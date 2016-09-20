@@ -255,7 +255,7 @@ public Cursor queryRoots(String[] projection) throws FileNotFoundException {
 
 * `queryChildDocuments()`<br>
   实现的`queryChildDocuments()`必须使用在`DocumentsContract.Document`中定义的列返回一个指向指定目录中所有文件的 Cursor。
-``` java
+  ``` java
 @Override
 public Cursor queryChildDocuments(String parentDocumentId, String[] projection,
                               String sortOrder) throws FileNotFoundException {
@@ -273,7 +273,7 @@ public Cursor queryChildDocuments(String parentDocumentId, String[] projection,
 
 * `queryDocument()`<br>
   实现的`queryDocument()`必须使用在`DocumentsContract.Document`中定义的列返回一个指向指定文件的 Cursor。
-``` java
+  ``` java
 @Override
 public Cursor queryDocument(String documentId, String[] projection) throws
         FileNotFoundException {
@@ -287,7 +287,7 @@ public Cursor queryDocument(String documentId, String[] projection) throws
 
 * `openDocument()`<br>
   必须实现`openDocument()`以返回表示指定文件的`ParcelFileDescriptor`。其他应用可以使用返回的`ParcelFileDescriptor`来流式传输数据。
-``` java
+  ``` java
 @Override
 public ParcelFileDescriptor openDocument(final String documentId,
                                          final String mode,
