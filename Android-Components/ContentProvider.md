@@ -125,15 +125,15 @@ Intent 可以提供对Content Provider的间接访问。即使您的应用不具
     允许用户修改您无权访问的数据的简单方法是激活具有权限的应用，让用户在其中执行工作。
 
 ### Content Provider权限
-在默认情况下，您的提供程序未设置权限。可以使用属性或\<provider\>元素的子元素在您的清单文件中为您的提供程序设置权限。
-* 统一读写提供程序级别权限<br>
-  一个同时控制对整个提供程序读取和写入访问的权限，通过\<provider\>元素的`android:permission`属性指定。<br><br>
-* 单独的读取和写入提供程序级别权限<br>
-  针对整个提供程序的读取权限和写入权限。可以通过\<provider\>元素的`android:readPermission`属性和`android:writePermission`属性 指定它们。它们优先于`android:permission`所需的权限。<br><br>
+在默认情况下，您的Provider未设置权限。可以使用属性或\<provider\>元素的子元素在您的清单文件中为您的Provider设置权限。
+* 统一读写Provider级别权限<br>
+  一个同时控制对整个Provider读取和写入访问的权限，通过\<provider\>元素的`android:permission`属性指定。<br><br>
+* 单独的读取和写入Provider级别权限<br>
+  针对整个Provider的读取权限和写入权限。可以通过\<provider\>元素的`android:readPermission`属性和`android:writePermission`属性 指定它们。它们优先于`android:permission`所需的权限。<br><br>
 * 路径级别权限<br>
-  针对提供程序中内容 URI 的读取、写入或读取/写入权限。可以通过\<provider\>元素的\<path-permission\>子元素指定想控制的每个 URI。 对于指定的每个内容 URI，都可以指定读取/写入权限、读取权限或写入权限，或同时指定所有三种权限。 读取权限和写入权限优先于读取/写入权限。 此外，路径级别权限优先于提供程序级别权限。<br><br>
+  针对Provider中内容 URI 的读取、写入或读取/写入权限。可以通过\<provider\>元素的\<path-permission\>子元素指定想控制的每个 URI。 对于指定的每个内容 URI，都可以指定读取/写入权限、读取权限或写入权限，或同时指定所有三种权限。 读取权限和写入权限优先于读取/写入权限。 此外，路径级别权限优先于Provider级别权限。<br><br>
 * 临时权限<br>
-  一种权限级别，即使应用不具备通常需要的权限，该级别也能授予对应用的临时访问权限。 要想启用临时权限，请设置\<provider\>元素的 `android:grantUriPermissions`属性，或者向您的\<provider\>元素添加一个或多个\<grant-uri-permission\> 子元素。如果您使用了临时权限，则每当您从提供程序中移除对某个内容 URI 的支持，并且该内容 URI 关联了临时权限时，都需要调用 `Context.revokeUriPermission()`。如果`android:grantUriPermissions`属性设置为 true，则系统会向整个提供程序授予临时权限，该权限将替代您的提供程序级别或路径级别权限所需的任何其他权限。
+  一种权限级别，即使应用不具备通常需要的权限，该级别也能授予对应用的临时访问权限。 要想启用临时权限，请设置\<provider\>元素的 `android:grantUriPermissions`属性，或者向您的\<provider\>元素添加一个或多个\<grant-uri-permission\> 子元素。如果您使用了临时权限，则每当您从Provider中移除对某个内容 URI 的支持，并且该内容 URI 关联了临时权限时，都需要调用 `Context.revokeUriPermission()`。如果`android:grantUriPermissions`属性设置为 true，则系统会向整个Provider授予临时权限，该权限将替代您的Provider级别或路径级别权限所需的任何其他权限。
   如果此标志设置为 false，则您必须向\<provider\>元素添加\<grant-uri-permission\> 子元素。每个子元素都指定授予的临时权限所对应的一个或多个内容 URI。<br>
 
   要向应用授予临时访问权限， Intent 必须包含`FLAG_GRANT_READ_URI_PERMISSION`和（或）`FLAG_GRANT_WRITE_URI_PERMISSION`标志。它们通过 `setFlags()`方法进行设置。
@@ -166,11 +166,11 @@ ContentProvider 使用内容 URI 的路径部分来选择要访问的表。 Prov
 子类型部分：<br>
 如果 URI 模式用于单个行：android.cursor.item/<br>
 如果 URI 模式用于多个行：android.cursor.dir/<br>
-提供程序特有部分：vnd.\<name\>.\<type\><br>
+Provider特有部分：vnd.\<name\>.\<type\><br>
 您提供\<name\> 和\<type\>。\<name\> 值应具有全局唯一性，\<type\> 值应在对应的 URI 模式中具有唯一性。<br>
 
 * 文件的 MIME 类型
-如果您的提供程序提供文件，请实现`getStreamTypes()`。该方法会为您的提供程序可以为给定内容 URI 返回的文件返回一个 MIME 类型 String 数组。应该通过 MIME 类型过滤器参数过滤您提供的 MIME 类型，以便只返回客户端想处理的那些 MIME 类型。
+如果您的Provider提供文件，请实现`getStreamTypes()`。该方法会为您的Provider可以为给定内容 URI 返回的文件返回一个 MIME 类型 String 数组。应该通过 MIME 类型过滤器参数过滤您提供的 MIME 类型，以便只返回客户端想处理的那些 MIME 类型。
 
 ### 防止恶意输入
 可使用一个用于将`?`作为可替换参数的选择子句以及一个单独的选择参数数组。 执行此操作时，用户输入直接受查询约束，而不解释为 SQL 语句的一部分。 由于用户输入未作为 SQL 处理，因此无法注入恶意 SQL。
