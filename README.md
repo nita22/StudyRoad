@@ -9,6 +9,8 @@ Java &amp; Android 知识点备忘
 #### [Service](/Android-Components/Service.md) 
 #### [BroadcastReceiver](/Android-Components/BroadcastReceiver.md)
 #### [ContentProvider](/Android-Components/ContentProvider.md)
+* [存储访问框架 (SAF)](/Android-Components/SAF.md)
+
 #### [Intent](/Android-Components/Intent.md)
 #### [Fragment](/Android-Components/Fragment.md)
 <br>
@@ -113,7 +115,6 @@ Java &amp; Android 知识点备忘
 * SharedPreference
 * 文件储存
 * SQLite数据库
-* 存储访问框架
 <br>
 
 ### 硬件方面
