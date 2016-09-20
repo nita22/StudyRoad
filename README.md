@@ -10,7 +10,7 @@ Java &amp; Android 知识点备忘
 #### [BroadcastReceiver](/Android-Components/BroadcastReceiver.md)
 #### [ContentProvider](/Android-Components/ContentProvider.md)
 #### [Intent](/Android-Components/Intent.md)
-#### [Fragement](/Android-Components/Fragment.md)
+#### [Fragment](/Android-Components/Fragment.md)
 <br>
 ### View
 * View工作过程
@@ -113,7 +113,7 @@ Java &amp; Android 知识点备忘
 * SharedPreference
 * 文件储存
 * SQLite数据库
-
+* 存储访问框架
 <br>
 
 ### 硬件方面
