@@ -14,6 +14,10 @@ Java &amp; Android 知识点备忘
 #### [Intent](/Android-Components/Intent.md)
 #### [Fragment](/Android-Components/Fragment.md)
 <br>
+
+### 资源文件
+
+
 ### View
 * View工作过程
 * View事件分发机制
