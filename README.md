@@ -15,8 +15,7 @@ Java &amp; Android 知识点备忘
 #### [Fragment](/Android-Components/Fragment.md)
 <br>
 
-### 资源文件
-
+### [资源文件](/Resources.md)
 
 ### View
 * View工作过程
