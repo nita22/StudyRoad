@@ -40,15 +40,15 @@
 
 ## 访问资源
 ### 在代码中访问资源
-[<package_name>.]R.<resource_type>.<resource_name>
-\<package_name\> 是资源所在包的名称（如果引用的资源来自您自己的资源包，则不需要）。
-\<resource_type\> 是资源类型的 R 子类。
+[\<package_name\>.]R.\<resource_type\>.\<resource_name\><br>
+\<package_name\> 是资源所在包的名称（如果引用的资源来自您自己的资源包，则不需要）。<br>
+\<resource_type\> 是资源类型的 R 子类。<br>
 \<resource_name\> 是不带扩展名的资源文件名，或 XML 元素中的`android:name`属性值（如果资源是简单值）。
 
 ### 在 XML 中访问资源
-@[<package_name>:]<resource_type>/<resource_name>
-\<package_name\>是资源所在包的名称（如果引用的资源来自同一包，则不需要）
-\<resource_type\>是资源类型的 R 子类
+@[\<package_name\>:]\<resource_type\>/\<resource_name\><br>
+\<package_name\>是资源所在包的名称（如果引用的资源来自同一包，则不需要）<br>
+\<resource_type\>是资源类型的 R 子类<br>
 \<resource_name\>是不带扩展名的资源文件名，或 XML 元素中的`android:name`属性值（如果资源是简单值）。
 <br>
 要引用系统资源，您需要加入包名称。
@@ -62,12 +62,12 @@
  ```
 
 #### 引用样式属性
-?[<package_name>:][<resource_type>/]<resource_name>
+?[\<package_name\>:][\<resource_type\>/]\<resource_name\>
 ``` xml
 <EditText id="text"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:textColor="?android:textColorSecondary"
     android:text="@string/hello_world" />
-    ```
+ ```
     
