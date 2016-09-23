@@ -39,9 +39,9 @@ startActivity(intent);
 * 利用`onSaveInstanceState()`和`onRestoreInstanceState()`（或`onCreate()`）保存并恢复 Activity 的状态<br><br>
 * 可通过保留 Fragment 来添加到 Activity 以保留有状态的对象
     * 扩展 Fragment 类并声明对有状态对象的引用
-    * 在创建片段后调用`setRetainInstance(boolean)`
-    * 将片段添加到 Activity
-    * 重启 Activity 后，使用`FragmentManager`检索片段<br><br>
+    * 在创建Fragment后调用`setRetainInstance(boolean)`
+    * 将Fragment添加到 Activity
+    * 重启 Activity 后，使用`FragmentManager`检索Fragment<br><br>
 
 ``` java
 public class RetainedFragment extends Fragment {
