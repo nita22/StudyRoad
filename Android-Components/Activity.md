@@ -35,9 +35,94 @@ startActivity(intent);
 * Activity 类的`onSaveInstanceState()`默认实现也会恢复部分 Activity 状态。具体地讲，默认实现会为布局中的每个 View 调用相应的 `onSaveInstanceState()`方法，让每个视图都能提供有关自身的应保存信息。
 
 ### 处理配置变更
-* 有些设备配置可能会在运行时发生变化（例如屏幕方向、键盘可用性及语言）。 发生此类变化时，Android 会重建运行中的 Activity（系统调用 `onDestroy()`，然后立即调用`onCreate()`）。<br><br>
-* 处理此类重启的最佳方法 是利用`onSaveInstanceState()`和`onRestoreInstanceState()`（或`onCreate()`）保存并恢复 Activity 的状态。<br><br>
+有些设备配置可能会在运行时发生变化（例如屏幕方向、键盘可用性及语言）。 发生此类变化时，Android 会重建运行中的 Activity（系统调用 `onDestroy()`，然后立即调用`onCreate()`）。<br><br>
+* 利用`onSaveInstanceState()`和`onRestoreInstanceState()`（或`onCreate()`）保存并恢复 Activity 的状态<br><br>
+* 可通过保留 Fragment 来添加到 Activity 以保留有状态的对象
+    * 扩展 Fragment 类并声明对有状态对象的引用
+    * 在创建片段后调用`setRetainInstance(boolean)`
+    * 将片段添加到 Activity
+    * 重启 Activity 后，使用`FragmentManager`检索片段<br><br>
+
+``` java
+public class RetainedFragment extends Fragment {
+
+    // data object we want to retain
+    private MyDataObject data;
+
+    // this method is only called once for this fragment
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // retain this fragment
+        setRetainInstance(true);
+    }
+
+    public void setData(MyDataObject data) {
+        this.data = data;
+    }
+
+    public MyDataObject getData() {
+        return data;
+    }
+}
+```
+
+``` java
+public class MyActivity extends Activity {
+
+    private RetainedFragment dataFragment;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        // find the retained fragment on activity restarts
+        FragmentManager fm = getFragmentManager();
+        dataFragment = (DataFragment) fm.findFragmentByTag(“data”);
+
+        // create the fragment and data the first time
+        if (dataFragment == null) {
+            // add the fragment
+            dataFragment = new DataFragment();
+            fm.beginTransaction().add(dataFragment, “data”).commit();
+            // load the data from the web
+            dataFragment.setData(loadMyData());
+        }
+
+        // the data is available in dataFragment.getData()
+        ...
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // store the data in the fragment
+        dataFragment.setData(collectMyLoadedData());
+    }
+}
+```
+
 * 不想系统重新创建Activity，可以给Activity制定`configChanges`属性。
+``` xml
+<activity android:name=".MyActivity"
+          android:configChanges="orientation|keyboardHidden"
+          android:label="@string/app_name">
+```
+
+当其中一个配置发生变化时，Activity 不会重启，而是 会收到对`onConfigurationChanged()`的调用。向此方法传递 Configuration 对象指定新设备配置。您可以通过读取 Configuration 中的字段，确定新配置，然后通过更新界面中使用的资源进行适当的更改。
+``` java
+public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+
+    // Checks the orientation of the screen
+    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+        Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+    }
+}
+```
 
 ### 协调 Activity
 1.Activity A 的`onPause()`方法执行。<br>
