@@ -1,16 +1,39 @@
 ## 提供资源
 
 ### 资源目录
-|目录           | 资源类型      |
-| ------------- |:-------------:|
-| animator/	    | 用于定义属性动画的 XML 文件 |
-| anim/         | 定义渐变动画的 XML 文件      | 
-| color/        | 用于定义颜色状态列表的 XML 文件    |
-|drawable/|位图文件或 Drawable 资源子类型的 XML 文件|
-|mipmap/|适用于不同启动器图标密度的 Drawable 文件|
-|layout/|用于定义用户界面布局的 XML 文件|
-|menu/|用于定义应用菜单的 XML 文件|
-|raw/|要以原始形式保存的任意文件|
-|values/|含字符串、整型数和颜色等简单值的 XML 文件<br>arrays.xml：用于资源数组<br>colors.xml：颜色值<br>dimens.xml：尺寸值<br>strings.xml：字符串值<br>styles.xml：样式|
-|xml/|可以在运行时通过调用 Resources.getXML() 读取的任意 XML 文件|
+![](https://github.com/nita22/StudyRoad/blob/master/Res/Pic/Resource%20directories.png?raw=true)
 
+### 提供备用资源
+#### 配置限定符
+* 可以为单组资源指定多个限定符，并使用短划线分隔
+* 限定符必须遵循配置限定符的顺序
+* 不能嵌套备用资源目录
+* 值不区分大小写
+* 对于每种限定符类型，仅支持一个值
+* 始终包含一组默认资源
+<br>
+![](https://github.com/nita22/StudyRoad/blob/master/Res/Pic/Configuration%20qualifier%20names.png?raw=true)
+
+#### 创建别名资源
+如果您想将某一资源用于多种设备配置（但是不想作为默认资源提供），则无需将同一资源放入多个备用资源目录中。 相反，您可以创建备用资源，充当保存在默认资源目录下的资源的别名。(xml/ 目录中的动画资源、菜单资源、原始资源以及其他未指定资源均不提供此功能。)
+
+* Drawable
+``` xml
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/icon_ca" />
+```
+
+* 布局
+``` xml
+<merge>
+    <include layout="@layout/main_ltr"/>
+</merge>
+```
+
+* 字符串和其他简单值
+``` xml
+<resources>
+    <string name="hello">Hello</string>
+    <string name="hi">@string/hello</string>
+</resources>
+```
