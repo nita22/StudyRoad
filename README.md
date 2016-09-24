@@ -87,8 +87,8 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### 动画
-* View动画
-* 属性动画
+* [属性动画](/Animation/Property%20Animation.md)
+* [View动画](/Animation/View%20Animation.md)
 <br>
 
 ### 消息机制
