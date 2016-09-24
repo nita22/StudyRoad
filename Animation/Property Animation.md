@@ -6,6 +6,7 @@
   * Java代码中:`R.animator.filename`
   * XML中:`@[package:]animator/filename`
 
+根元素需要为\<set\>, \<objectAnimator\>, 或者 \<valueAnimator\>
 ``` xml
 <set
   android:ordering=["together" | "sequentially"]>
