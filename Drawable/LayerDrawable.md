@@ -19,6 +19,11 @@ LayerDrawable表示一种层次化的Drawable集合，通过将不同的Drawable
 </layer-list>
 ```
 
+`android:top`：Drawable相对于View的顶部的偏移量<br>
+`android:bottom`：Drawable相对于View的底部的偏移量<br>
+`android:left`：Drawable相对于View的左边的偏移量<br>
+`android:right`：Drawable相对于View的右边的偏移量<br>
+
 范例：
 ``` xml
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
