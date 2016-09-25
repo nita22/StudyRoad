@@ -25,11 +25,9 @@ Java &amp; Android 知识点备忘
 > InsetDrawable<br>
 > ScaleDrawable<br>
 > ClipDrawable<br>
-
 <br>
 
 * 自定义Drawable
-
 <br>
 
 ### View
