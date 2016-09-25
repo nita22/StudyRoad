@@ -16,6 +16,21 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### [资源文件](/Resources.md)
+#### Drawable
+> BitmapDrawable<br>
+> ShapeDrawable<br>
+> LayerDrawable<br>
+> StateListDrawable<br>
+> LevelListDrawable<br>
+> InsetDrawable<br>
+> ScaleDrawable<br>
+> ClipDrawable<br>
+
+<br>
+
+* 自定义Drawable
+
+<br>
 
 ### View
 * View工作过程
@@ -61,22 +76,6 @@ Java &amp; Android 知识点备忘
 <br>
 
 * [App Widgets](/User-Interface/App%20Widgets.md)
-<br>
-
-### Drawable
-> BitmapDrawable<br>
-> ShapeDrawable<br>
-> LayerDrawable<br>
-> StateListDrawable<br>
-> LevelListDrawable<br>
-> InsetDrawable<br>
-> ScaleDrawable<br>
-> ClipDrawable<br>
-
-<br>
-
-* 自定义Drawable
-
 <br>
 
 ### 图片加载
