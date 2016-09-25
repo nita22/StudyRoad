@@ -19,6 +19,8 @@
     android:dither=["true" | "false"] />
 ```
 
+`android:dither`：true表示，如果一个屏幕中位图有这不同的像素配置，启用位图的抖动。false表示不启用位图的抖动
+
 范例：
 ``` xml
 <nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
