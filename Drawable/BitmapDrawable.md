@@ -27,6 +27,13 @@ Android可以支持的Bitmap类型为：`.png`(推荐), `.jpg`(允许), `.gif`(�
     android:tileMode=["disabled" | "clamp" | "repeat" | "mirror"] />
 ```
 
+`android:antialias`：是否开启图片抗锯齿功能<br>
+`android:dither`：是否开启抖动效果<br>
+`android:filter`：是否开启过滤效果<br>
+`android:gravity`：图片的位置<br>
+`android:mipMap`：纹理映射，默认值为false<br>
+`android:tileMode`：平铺模式。repeat表示简单的水平和竖直方向上的平铺效果，mirror表示一种在水平和竖直方向上的镜面投影效果，clamp效果会使图片四周的像素扩展到周围区域
+
 范例：
 ``` xml
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
