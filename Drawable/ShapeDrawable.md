@@ -80,7 +80,7 @@
 `android:bottom`：底边距<br>
 <br>
 
-\<size\>标签的属性：<br>
+\<size\>标签的属性：(作为View的背景时，shape会被拉伸或者缩小为View的大小)<br>
 `android:height`：图形的高度<br>
 `android:width`：图形的宽度<br>
 <br>
