@@ -26,6 +26,13 @@ Android可以支持的Bitmap类型为：`.png`(推荐), `.jpg`(允许), `.gif`(�
     android:mipMap=["true" | "false"]
     android:tileMode=["disabled" | "clamp" | "repeat" | "mirror"] />
 ```
+
+范例：
+``` xml
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/icon"
+    android:tileMode="repeat" />
+```
  
 ### 引用Bitmap
 * Java代码中引用：
