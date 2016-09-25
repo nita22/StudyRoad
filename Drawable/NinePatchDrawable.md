@@ -18,3 +18,10 @@
     android:src="@[package:]drawable/drawable_resource"
     android:dither=["true" | "false"] />
 ```
+
+范例：
+``` xml
+<nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/myninepatch"
+    android:dither="false" />
+```
