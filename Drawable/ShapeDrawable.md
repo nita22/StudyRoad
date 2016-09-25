@@ -110,3 +110,12 @@
     <corners android:radius="8dp" />
 </shape>
 ```
+
+Java代码中引用ShapeDrawable：
+``` java
+Resources res = getResources();
+Drawable shape = res. getDrawable(R.drawable.gradient_box);
+
+TextView tv = (TextView)findViewByID(R.id.textview);
+tv.setBackground(shape);
+```
