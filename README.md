@@ -17,7 +17,7 @@ Java &amp; Android 知识点备忘
 
 ### [资源文件](/Resources.md)
 #### Drawable
-> BitmapDrawable<br>
+> [BitmapDrawable](/Drawable/BitmapDrawable.md)<br>
 > ShapeDrawable<br>
 > LayerDrawable<br>
 > StateListDrawable<br>
