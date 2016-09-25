@@ -27,7 +27,6 @@ Java &amp; Android 知识点备忘
 > [ScaleDrawable](/Drawable/ScaleDrawable.md)<br>
 > [ClipDrawable](/Drawable/ClipDrawable.md)<br>
 > [TransitionDrawable](/Drawable/TransitionDrawable.md)<br>
-<br>
 
 * 自定义Drawable
 <br>
