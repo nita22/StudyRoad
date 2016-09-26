@@ -36,7 +36,7 @@
 \<merge\>标签一般跟\<include\>标签一起使用来减少布局的层级。当LayoutInflater遇到\<merge/\>标签时,它会跳过它,并将\<merge/\>内的元素添加到\<merge/\>的父元素里。<br>
 
 * ViewStub<br>
-ViewStub可以按需加载所需的布局文件。<br>
+ViewStub可以按需加载所需的布局文件。当ViewStub通过`setVisibility()`或`inflate()`方法加载后，ViewStub就会被它内部的布局替换掉。<br>
 ``` xml
 <ViewStub
   android:id="@+id/stub_import"
