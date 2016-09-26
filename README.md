@@ -39,7 +39,7 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### UI控件
-* ViewGroup
+* Layout
 <br>
 * Android初级控件
 > TextView<br>
