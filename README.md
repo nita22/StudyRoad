@@ -62,7 +62,7 @@ Java &amp; Android 知识点备忘
 > Dialog<br>
 > BlockquoteAlertDialog<br>
 > DatePickerDialog<br>
-> Menu<br>
+> [Menu](/User-Interface/Menu.md)<br>
 
 * [App Widgets](/User-Interface/App%20Widgets.md)
 <br>
