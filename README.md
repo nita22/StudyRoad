@@ -40,10 +40,8 @@ Java &amp; Android 知识点备忘
 
 ### UI控件
 * ViewGroup
-
 <br>
 * Android初级控件
-
 > TextView<br>
 > Button<br>
 > EditText<br>
@@ -51,10 +49,7 @@ Java &amp; Android 知识点备忘
 > RadioButton<br>
 > Checkbox<br>
 
-<br>
-
 * Android高级控件
-
 > ListView<br>
 > GridView<br>
 > Adapter<br>
@@ -62,16 +57,13 @@ Java &amp; Android 知识点备忘
 > Gallary<br>
 > ScrollView<br>
 > RecyclerView<br>
-
 <br>
 
 * 对话框与菜单
-
 > Dialog<br>
 > BlockquoteAlertDialog<br>
 > DatePickerDialog<br>
 > Menu<br>
-
 <br>
 
 * [App Widgets](/User-Interface/App%20Widgets.md)
@@ -124,7 +116,6 @@ Java &amp; Android 知识点备忘
 * 位置服务
 * 硬件传感器
 * 音频、视频、摄像头
-
 <br>
 
 ### 性能优化
