@@ -44,7 +44,7 @@
 `android:title`：菜单的标题<br>
 `android:titleCondensed`：简要标题，在普通标题太长时来使用<br>
 `android:icon`：菜单项所要使用的图标<br>
-`android:onClick`：当menu的item被点击时调用方法，方法必须声明为public并且参数只能有一个MenuItem<br>
+`android:onClick`：当menu的item被点击时调用方法，方法必须声明为public并且参数只能有一个MenuItem，该方法的优先度比`onOptionsItemSelected()`方法要高<br>
 `android:showAsAction`：定义item作为操作栏中的操作项的显示时机和方式，值可以为`ifRoom`、`withText`、`never`、`always`、`collapseActionView`。<br>
 `android:actionLayout`： 作为action view使用的布局。 <br>
 `android:actionViewClass`：action view要使用的View对象的完整的类名<br>
