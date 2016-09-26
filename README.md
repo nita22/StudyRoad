@@ -57,14 +57,12 @@ Java &amp; Android 知识点备忘
 > Gallary<br>
 > ScrollView<br>
 > RecyclerView<br>
-<br>
 
 * 对话框与菜单
 > Dialog<br>
 > BlockquoteAlertDialog<br>
 > DatePickerDialog<br>
 > Menu<br>
-<br>
 
 * [App Widgets](/User-Interface/App%20Widgets.md)
 <br>
