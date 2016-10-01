@@ -16,7 +16,8 @@ Java &amp; Android 知识点备忘
 <br>
 ### [AndroidManifest](/AndroidManifest.md)
 <br>
-### [资源文件](/Resources.md)
+### [资源文件](/Resources/Resources.md)
+* [资源文件类型](/Resources/ResourceTypes.md)
 <br>
 #### Drawable
 > [BitmapDrawable](/Drawable/BitmapDrawable.md)<br>
