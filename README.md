@@ -14,7 +14,7 @@ Java &amp; Android 知识点备忘
 #### [Intent](/Android-Components/Intent.md)
 #### [Fragment](/Android-Components/Fragment.md)
 <br>
-### [AndroidManifest](/AndroidManifest.md)
+### [应用清单文件](/AndroidManifest.md)
 <br>
 ### [资源文件](/Resources/Resources.md)
 #### Drawable
