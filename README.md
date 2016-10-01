@@ -17,8 +17,6 @@ Java &amp; Android 知识点备忘
 ### [AndroidManifest](/AndroidManifest.md)
 <br>
 ### [资源文件](/Resources/Resources.md)
-* [资源文件类型](/Resources/ResourceTypes.md)
-<br>
 #### Drawable
 > [BitmapDrawable](/Drawable/BitmapDrawable.md)<br>
 > [NinePatchDrawable](/Drawable/NinePatchDrawable.md)<br>
@@ -33,6 +31,8 @@ Java &amp; Android 知识点备忘
 
 * 自定义Drawable
 <br>
+
+#### [其它资源文件类型](/Resources/ResourceTypes.md)
 
 ### View
 * View工作过程
