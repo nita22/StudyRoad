@@ -30,7 +30,7 @@ Java &amp; Android 知识点备忘
 > [TransitionDrawable](/Drawable/TransitionDrawable.md)<br>
 
 * 自定义Drawable
-<br>
+  <br>
 
 #### [其它资源文件类型](/Resources/ResourceTypes.md)
 
@@ -39,7 +39,7 @@ Java &amp; Android 知识点备忘
 * View事件分发机制
 * View滑动
 * 自定义View
-<br>
+  <br>
 
 ### UI控件
 * [布局](/User-Interface/Layout.md)
@@ -47,7 +47,7 @@ Java &amp; Android 知识点备忘
 * Android初级控件
 > TextView<br>
 > [Button](/User-Interface/Button.md)<br>
-> EditText<br>
+> [EditText](/User-Interface/EditText.md)<br>
 > ImageView<br>
 > RadioButton<br>
 > Checkbox<br>
@@ -68,23 +68,23 @@ Java &amp; Android 知识点备忘
 > [Menu](/User-Interface/Menu.md)<br>
 
 * [App Widgets](/User-Interface/App%20Widgets.md)
-<br>
+  <br>
 
 ### 图片加载
 * 图片压缩
 * 图片缓存
   * LruCache
   * DiskLruCache
-<br>
+    <br>
 
 ### 动画
 * [属性动画](/Animation/Property%20Animation.md)
 * [View动画](/Animation/View%20Animation.md)
-<br>
+  <br>
 
 ### 消息机制
 * Handler
-<br>
+  <br>
 
 ### 多线程
 * Thread
@@ -93,14 +93,14 @@ Java &amp; Android 知识点备忘
 * HandlerThread
 * ThreadPoolExecutor
 * [Loader](/Threads/Loader.md)
-<br>
+  <br>
 
 ### 多进程
 * [Binder](/IPC/Binder.md)
 * [Messenger](/IPC/Messenger.md)
 * [AIDL](/IPC/AIDL.md)
 * Socket
-<br>
+  <br>
 
 ### 网络编程
 <br>
@@ -109,7 +109,7 @@ Java &amp; Android 知识点备忘
 * SharedPreference
 * 文件储存
 * SQLite数据库
-<br>
+  <br>
 
 ### 硬件方面
 * 电话 短信
@@ -117,7 +117,7 @@ Java &amp; Android 知识点备忘
 * 位置服务
 * 硬件传感器
 * 音频、视频、摄像头
-<br>
+  <br>
 
 ### 性能优化
 <br>
