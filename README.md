@@ -43,10 +43,6 @@ Java &amp; Android 知识点备忘
 
 ### UI控件
 * [布局](/User-Interface/Layout.md)
-> LinearLayout<br>
-> RelativeLayout<br>
-> FrameLayout<br>
-
 
 * Android初级控件
 > TextView<br>
