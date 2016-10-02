@@ -68,7 +68,7 @@ button.setOnClickListener(new View.OnClickListener() {
     style="?android:attr/borderlessButtonStyle" />
 ```
 
-#### 按钮背景
+#### 设置按钮背景
 
 ``` xml
 <Button
