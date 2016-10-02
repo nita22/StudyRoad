@@ -46,7 +46,7 @@ Java &amp; Android 知识点备忘
 
 * Android初级控件
 > TextView<br>
-> Button<br>
+> [Button](/User-Interface/Button.md)<br>
 > EditText<br>
 > ImageView<br>
 > RadioButton<br>
