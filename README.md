@@ -53,8 +53,8 @@ Java &amp; Android 知识点备忘
 > Checkbox<br>
 
 * Android高级控件
-> ListView<br>
-> GridView<br>
+> [ListView](/User-Interface/ListView.md)<br>
+> [GridView](/User-Interface/GridView.md)<br>
 > Adapter<br>
 > Spinner<br>
 > Gallary<br>
