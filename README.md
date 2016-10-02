@@ -42,7 +42,7 @@ Java &amp; Android 知识点备忘
 <br>
 
 ### UI控件
-* [Layout](/User-Interface/Layout.md)
+* [布局](/User-Interface/Layout.md)
 > LinearLayout<br>
 > RelativeLayout<br>
 > FrameLayout<br>
