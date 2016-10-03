@@ -5,7 +5,7 @@
 
 ### 创建时间选择器
 
-1. 创建`DialogFragment`的子类，在`onCreateDialog`方法中返回`TimePickerDialog`的实例。要监听时间选择器的结果，需要实现`TimePickerDialog.OnTimeSetListener`接口。
+1.创建`DialogFragment`的子类，在`onCreateDialog`方法中返回`TimePickerDialog`的实例。要监听时间选择器的结果，需要实现`TimePickerDialog.OnTimeSetListener`接口。
 
 ``` java
   public static class TimePickerFragment extends DialogFragment
@@ -29,7 +29,7 @@
   }
 ```
 
-2. 在Activity中使用`show()`方法展示`TimePickerDialog`。（应使用FragmentActivity的子类）
+2.在Activity中使用`show()`方法展示`TimePickerDialog`。（应使用FragmentActivity的子类）
 
 ``` java
   DialogFragment newFragment = new TimePickerFragment();
