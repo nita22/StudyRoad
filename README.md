@@ -46,25 +46,26 @@ Java &amp; Android 知识点备忘
 
 * Android初级控件
 > TextView<br>
+> ImageView<br>
 > [Button](/User-Interface/Button.md)<br>
 > [EditText](/User-Interface/EditText.md)<br>
-> ImageView<br>
-> RadioButton<br>
-> Checkbox<br>
+> [RadioButton](/User-Interface/RadioButton.md)<br>
+> [Checkbox](/User-Interface/Checkbox.md)<br>
+> [ToggleButton](/User-Interface/ToggleButton.md)<br>
 
 * Android高级控件
 > [ListView](/User-Interface/ListView.md)<br>
 > [GridView](/User-Interface/GridView.md)<br>
-> Adapter<br>
-> Spinner<br>
+> [Adapter](/User-Interface/Adapter.md)<br>
+> [Spinner](/User-Interface/Spinner.md)<br>
 > Gallary<br>
 > ScrollView<br>
 > RecyclerView<br>
+> [Picker](/User-Interface/Picker.md)<br>
 
 * 对话框与菜单
 > Dialog<br>
 > BlockquoteAlertDialog<br>
-> DatePickerDialog<br>
 > [Menu](/User-Interface/Menu.md)<br>
 
 * [App Widgets](/User-Interface/App%20Widgets.md)
