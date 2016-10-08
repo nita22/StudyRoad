@@ -68,8 +68,8 @@ Java &amp; Android 知识点备忘
 > BlockquoteAlertDialog<br>
 > [Menu](/User-Interface/Menu.md)<br>
 
-* [App Widgets](/User-Interface/App%20Widgets.md)
-  <br>
+* [App Widgets](/User-Interface/App%20Widgets.md)<br>
+* [Setting](/User-Interface/Setting.md)<br>
 
 ### 图片加载
 * 图片压缩
