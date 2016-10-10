@@ -170,7 +170,7 @@ public Dialog onCreateDialog(Bundle savedInstanceState) {
 
 ## 显示对话框
 
-创建一个 `DialogFragment` 实例并调用 `show()`，以传递对话框片段的 `FragmentManager` 和标记名称。
+创建一个 `DialogFragment` 实例并调用 `show()`，以传递对话框Fragment的 `FragmentManager` 和标记名称。
 
 ``` java
 DialogFragment newFragment = new FireMissilesDialogFragment();
@@ -179,7 +179,7 @@ newFragment.show(getSupportFragmentManager(), "missiles");
 
 ## Dialog作为嵌入式 Fragment
 
- `DialogFragment` 可以显示为对话框或嵌入式片段。想让 `DialogFragment` 具有嵌入能力，则必须在布局中定义对话框的 UI，然后在 `onCreateView()` 回调中加载布局。
+ `DialogFragment` 可以显示为对话框或嵌入式Fragment。想让 `DialogFragment` 具有嵌入能力，则必须在布局中定义对话框的 UI，然后在 `onCreateView()` 回调中加载布局。
 
 ``` java
 public class CustomDialogFragment extends DialogFragment {
