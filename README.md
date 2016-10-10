@@ -67,9 +67,10 @@ Java &amp; Android 知识点备忘
 > [Dialog](/User-Interface/Dialog.md)<br>
 > [Menu](/User-Interface/Menu.md)<br>
 
-* [Notification](/User-Interface/Notification.md)<br>
-* [App Widgets](/User-Interface/App%20Widgets.md)<br>
-* [Setting](/User-Interface/Setting.md)<br>
+* [Notification](/User-Interface/Notification.md)
+* [Toast](/User-Interface/Toast.md)
+* [App Widgets](/User-Interface/App%20Widgets.md)
+* [Setting](/User-Interface/Setting.md)
 
 ### 图片加载
 * 图片压缩
