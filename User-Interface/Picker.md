@@ -29,7 +29,7 @@
   }
 ```
 
-2.在Activity中使用`show()`方法展示`TimePickerDialog`。（应使用FragmentActivity的子类）
+2.在Activity中使用`show()`方法展示`TimePickerDialog`。
 
 ``` java
   DialogFragment newFragment = new TimePickerFragment();
@@ -78,7 +78,7 @@ timePickerDialog.show();
    }
    ```
 
-2. 在Activity中使用`show()`方法展示`DatePickerDialog`。（应使用FragmentActivity的子类）
+2. 在Activity中使用`show()`方法展示`DatePickerDialog`。
 
    ``` java
    DialogFragment newFragment = new DatePickerFragment();
