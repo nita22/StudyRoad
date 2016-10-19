@@ -177,3 +177,74 @@ public boolean onCreateOptionsMenu(Menu menu) {
 </searchable>
 ```
 
+## 添加最近搜索建议
+
+### 创建`SearchRecentSuggestionsProvider`
+
+创建`SearchRecentSuggestionsProvider`的子类并且需要实现该构造方法。
+
+`setupSuggestions(AUTHORITY, MODE)`方法的第一个参数是搜索的权限，通常使用唯一的字符串；第二个参数是数据库模式，必须包括`DATABASE_MODE_QUERIES`，还可以添加`DATABASE_MODE_2LINES`。
+
+``` java
+public class MySuggestionProvider extends SearchRecentSuggestionsProvider {
+    public final static String AUTHORITY = "com.example.MySuggestionProvider";
+    public final static int MODE = DATABASE_MODE_QUERIES;
+
+    public MySuggestionProvider() {
+        setupSuggestions(AUTHORITY, MODE);
+    }
+}
+```
+
+在AndroidManifest文件中声明：
+
+``` xml
+<application>
+    <provider android:name=".MySuggestionProvider"
+              android:authorities="com.example.MySuggestionProvider" />
+    ...
+</application>
+```
+
+### 修改searchable configuration
+
+``` xml
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/app_label"
+    android:hint="@string/search_hint"
+    android:searchSuggestAuthority="com.example.MySuggestionProvider"
+    android:searchSuggestSelection=" ?" >
+</searchable>
+```
+
+### 保存查询
+
+在Searchable Activity中接收到`Intent.ACTION_SEARCH` intent 时，可以实例化`SearchRecentSuggestions`并且调用`saveRecentQuery()`方法。其第一个参数是搜索的字符串，第二个参数作为搜索的第二行（当使用`DATABASE_MODE_2LINES`标志时）。
+
+``` java
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+
+    Intent intent  = getIntent();
+
+    if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+        String query = intent.getStringExtra(SearchManager.QUERY);
+        SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
+                MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
+        suggestions.saveRecentQuery(query, null);
+    }
+}
+```
+
+### 删除历史搜索
+
+``` java
+SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
+        HelloSuggestionProvider.AUTHORITY, HelloSuggestionProvider.MODE);
+suggestions.clearHistory();
+```
+
+
+
