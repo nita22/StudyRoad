@@ -246,5 +246,129 @@ SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
 suggestions.clearHistory();
 ```
 
+## 添加自定义搜索建议
 
+### 修改searchable configuration
+
+``` xml
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/app_label"
+    android:hint="@string/search_hint"
+    android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider">
+</searchable>
+```
+
+### 创建ContentProvider
+
+在用户每次输入一个字符，需要调用`ContentProvider`的`query()`方法去进行搜索，并显示自定义的搜索建议。需要重写`query()`方法，在`query()`方法中进行搜索并且返回一个指向指定内容的Cursor。
+
+* 系统的默认行为是传递URI并后跟搜索请求字符串：
+
+  ``` xml
+  content://your.authority/optional.suggest.path/SUGGEST_URI_PATH_QUERY/strings
+  ```
+
+  仅当搜索配置文件中用`android:searchSuggestPath`属性设置了路径时，URI中才要包含`optional.suggest.path`部分。
+
+* 在配置文件中的查询字符串
+
+  ``` xml
+  <searchable xmlns:android="http://schemas.android.com/apk/res/android"
+      android:label="@string/app_label"
+      android:hint="@string/search_hint"
+      android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
+      android:searchSuggestIntentAction="android.intent.action.VIEW"
+      android:searchSuggestSelection="word MATCH ?">
+  </searchable>
+  ```
+
+  `android:searchSuggestIntentAction` ：用于定义用户每次选中建议项时所发送intent的action
+
+  `android:searchSuggestSelection` ：定义查询语句
+
+  若想从URI中获得搜索的字符串：
+
+  ``` java
+  String query = uri.getLastPathSegment().toLowerCase();
+  ```
+
+### 建立建议项数据表
+
+用Cursor向系统返回建议项时，每一行数据的列格式都是系统规定的。
+
+有两列是必需的：
+
+* `ID` ：整数类型的行ID
+* `SUGGEST_COLUMN_TEXT_1` :建议项的字符串
+
+还有其它可选列：
+
+* `SUGGEST_COLUMN_TEXT_2` ：如果Cursor包含该列，那么所有的建议项都提供两行模式。本列中的字符串将会显示为第二行
+
+* `SUGGEST_COLUMN_ICON_1` ：建议项的图标
+
+* `SUGGEST_COLUMN_ICON_2` ：建议项的第二行图标
+
+* `SUGGEST_COLUMN_INTENT_ACTION` ：intent action字符串，会覆盖`android:searchSuggestIntentAction`中的属性
+
+* `SUGGEST_COLUMN_INTENT_DATA` ：此值在格式化建议项时将作为intent的data部分来使用，会覆盖`android:searchSuggestIntentData`中的属性
+
+* `SUGGEST_COLUMN_INTENT_DATA_ID` ：如果给定行中存在本列并且有值，那么“/”加上本值将会添加到intent的data之后
+
+* `SUGGEST_COLUMN_INTENT_EXTRA_DATA` ：本列允许建议项附带额外的数据，包含于intent的`EXTRA_DATA_KEY`键内
+
+* `SUGGEST_COLUMN_QUERY` ：如果给定行中存在本列并且有值，则为格式化建议项请求时需要用到的数据，包含于intent的QUERY键内
+
+
+### 声明建议项所需的Intent
+
+当用户在搜索对话框或widget下方的列表内选中某个建议项时，系统会向搜索activity发送一个自定义的Intent。
+
+#### 声明intent的action
+
+有两种方法：
+
+* 利用搜索配置文件的`android:searchSuggestIntentAction`属性来定义所有建议项的action
+
+  ```
+  <searchable xmlns:android="http://schemas.android.com/apk/res/android"
+      android:label="@string/app_label"
+      android:hint="@string/search_hint"
+      android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
+      android:searchSuggestIntentAction="android.Intent.action.VIEW" >
+  </searchable>
+  ```
+
+* 利用`SUGGEST_COLUMN_INTENT_ACTION`列来定义单个建议项的action
+
+  建议项表中添加`SUGGEST_COLUMN_INTENT_ACTION`列，并把每个建议项所用到的action放入其中
+#### 声明intent的data
+
+有两种方法：
+
+*  在建议项表的`SUGGEST_COLUMN_INTENT_DATA`列中为每个建议项都定义一个data
+
+*  把data的URI分解为两部分：所有建议项公共的部分和每个建议项唯一的部分。把这两部分分别放入搜索配置文件的`android:searchSuggestintentData`属性和建议项表的`SUGGEST_COLUMN_INTENT_DATA_ID`列中。
+
+   用户选中建议项后，系统会把`android:searchSuggestIntentData`中指定的字符串加上斜杠 ("/")，再加入各自`SUGGEST_COLUMN_INTENT_DATA_ID`列中的值，组成一个完整的content URI。
+
+
+#### 附加更多数据
+
+可以添加另一列`SUGGEST_COLUMN_INTENT_EXTRA_DATA`来存放与建议项相关的附加数据。在此列中存放的数据将被置于intent附带Bundle的`EXTRA_DATA_KEY`部分中。
+
+### 处理Intent
+
+``` java
+Intent intent = getIntent();
+if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+    // Handle the normal search query case
+    String query = intent.getStringExtra(SearchManager.QUERY);
+    doSearch(query);
+} else if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+    // Handle a suggestions click (because the suggestions all use ACTION_VIEW)
+    Uri data = intent.getData();
+    showResult(data);
+}
+```
 
