@@ -1,8 +1,10 @@
 # StudyRoad
-Java &amp; Android 知识点备忘
+Java & Android 知识点备忘
 
 ## Java SE
-<br>
+
+
+
 ## Android
 ### Android组件
 #### [Activity](/Android-Components/Activity.md) 
@@ -13,82 +15,104 @@ Java &amp; Android 知识点备忘
 
 #### [Intent](/Android-Components/Intent.md)
 #### [Fragment](/Android-Components/Fragment.md)
-<br>
-### [应用清单文件](/AndroidManifest.md)
-<br>
+
+
+
+### [AndroidManifest文件](/AndroidManifest.md)
+
+
+
 ### [资源文件](/Resources/Resources.md)
 #### Drawable
-> [BitmapDrawable](/Drawable/BitmapDrawable.md)<br>
-> [NinePatchDrawable](/Drawable/NinePatchDrawable.md)<br>
-> [ShapeDrawable](/Drawable/ShapeDrawable.md)<br>
-> [LayerDrawable](/Drawable/LayerDrawable.md)<br>
-> [StateListDrawable](/Drawable/StateListDrawable.md)<br>
-> [LevelListDrawable](/Drawable/LevelListDrawable.md)<br>
-> [InsetDrawable](/Drawable/InsetDrawable.md)<br>
-> [ScaleDrawable](/Drawable/ScaleDrawable.md)<br>
-> [ClipDrawable](/Drawable/ClipDrawable.md)<br>
-> [TransitionDrawable](/Drawable/TransitionDrawable.md)<br>
+> [BitmapDrawable](/Drawable/BitmapDrawable.md)
+> [NinePatchDrawable](/Drawable/NinePatchDrawable.md)
+> [ShapeDrawable](/Drawable/ShapeDrawable.md)
+> [LayerDrawable](/Drawable/LayerDrawable.md)
+> [StateListDrawable](/Drawable/StateListDrawable.md)
+> [LevelListDrawable](/Drawable/LevelListDrawable.md)
+> [InsetDrawable](/Drawable/InsetDrawable.md)
+> [ScaleDrawable](/Drawable/ScaleDrawable.md)
+> [ClipDrawable](/Drawable/ClipDrawable.md)
+> [TransitionDrawable](/Drawable/TransitionDrawable.md)
 
 * 自定义Drawable
-  <br>
 
 #### [其它资源文件类型](/Resources/ResourceTypes.md)
+
+
 
 ### View
 * View工作过程
 * View事件分发机制
 * View滑动
 * 自定义View
-  <br>
+  ​
 
-### UI控件
+### UI
 * [布局](/User-Interface/Layout.md)
 
-* Android初级控件
-> TextView<br>
-> ImageView<br>
-> [Button](/User-Interface/Button.md)<br>
-> [EditText](/User-Interface/EditText.md)<br>
-> [RadioButton](/User-Interface/RadioButton.md)<br>
-> [Checkbox](/User-Interface/Checkbox.md)<br>
-> [ToggleButton](/User-Interface/ToggleButton.md)<br>
+* TextView
 
-* Android高级控件
-> [ListView](/User-Interface/ListView.md)<br>
-> [GridView](/User-Interface/GridView.md)<br>
-> [Adapter](/User-Interface/Adapter.md)<br>
-> [Spinner](/User-Interface/Spinner.md)<br>
-> Gallary<br>
-> ScrollView<br>
-> RecyclerView<br>
-> [Picker](/User-Interface/Picker.md)<br>
+* ImageView
 
-* 对话框与菜单
-> [Dialog](/User-Interface/Dialog.md)<br>
-> [Menu](/User-Interface/Menu.md)<br>
+* [Button](/User-Interface/Button.md)
 
-<br>
+* [EditText](/User-Interface/EditText.md)
+
+* [RadioButton](/User-Interface/RadioButton.md)
+
+* [Checkbox](/User-Interface/Checkbox.md)
+
+* [ToggleButton](/User-Interface/ToggleButton.md)
+
+* [ListView](/User-Interface/ListView.md)
+
+* [GridView](/User-Interface/GridView.md)
+
+* [Adapter](/User-Interface/Adapter.md)
+
+* [Spinner](/User-Interface/Spinner.md)
+
+* Gallary
+
+* ScrollView
+
+* RecyclerView
+
+* [Picker](/User-Interface/Picker.md)
+
+* [Dialog](/User-Interface/Dialog.md)
+
+* [Menu](/User-Interface/Menu.md)
+
 * [Notification](/User-Interface/Notification.md)
+
 * [Toast](/User-Interface/Toast.md)
+
 * [App Widgets](/User-Interface/App%20Widgets.md)
+
 * [SearchView](/User-Interface/Search.md)
+
 * [Setting](/User-Interface/Setting.md)
 
+  ​
 ### 图片加载
 * 图片压缩
 * 图片缓存
   * LruCache
+
   * DiskLruCache
-    <br>
+
+    ​
 
 ### 动画
 * [属性动画](/Animation/Property%20Animation.md)
 * [View动画](/Animation/View%20Animation.md)
-  <br>
+  ​
 
 ### 消息机制
 * Handler
-  <br>
+  ​
 
 ### 多线程
 * Thread
@@ -97,23 +121,25 @@ Java &amp; Android 知识点备忘
 * HandlerThread
 * ThreadPoolExecutor
 * [Loader](/Threads/Loader.md)
-  <br>
+  ​
 
 ### 多进程
 * [Binder](/IPC/Binder.md)
 * [Messenger](/IPC/Messenger.md)
 * [AIDL](/IPC/AIDL.md)
 * Socket
-  <br>
+  ​
 
 ### 网络编程
-<br>
+
+
+
 
 ### 数据存储技术
 * SharedPreference
 * 文件储存
 * SQLite数据库
-  <br>
+  ​
 
 ### 硬件方面
 * 电话 短信
@@ -121,11 +147,68 @@ Java &amp; Android 知识点备忘
 * 位置服务
 * 硬件传感器
 * 音频、视频、摄像头
-  <br>
+  ​
 
-### 性能优化
-<br>
+### 优秀开源框架
 
-### Android Studio
-<br>
+* 响应式编程
+
+  * [RxJava](https://github.com/ReactiveX/RxJava)
+  * [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+
+* 网络
+
+  * [Retrofit](https://github.com/square/retrofit)
+  * [Okhttp](https://github.com/square/okhttp)
+
+* 数据库
+
+  * [GreenDAO](https://github.com/greenrobot/greenDAO)
+  * [DBFlow](https://github.com/Raizlabs/DBFlow)
+  * [Realm](https://github.com/realm/realm-java)
+  * [LiteOrm](https://github.com/litesuits/android-lite-orm)
+
+* 图片加载及缓存
+
+  * [Glide](https://github.com/bumptech/glide)
+  * [Picasso](https://github.com/square/picasso)
+  * [Fresco](https://github.com/facebook/fresco)
+
+* Json解析
+
+  * [Gson](https://github.com/google/gson)
+
+
+  * [Fastjson](https://github.com/alibaba/fastjson)
+
+* 事件处理
+
+  * [EventBus](https://github.com/greenrobot/EventBus)
+  * [Otto](https://github.com/square/otto)
+
+* 热补丁技术
+
+  * [Tinker](https://github.com/Tencent/tinker)
+  * [AndFix](https://github.com/alibaba/AndFix)
+
+* 二维码
+
+  * [zxing](https://github.com/zxing/zxing)
+
+* 依赖注入库
+
+  * [Dagger2](https://github.com/google/dagger)
+  * [Butterknife](https://github.com/JakeWharton/butterknife)
+
+* 内存泄漏检测
+
+  * [LeakCanary](https://github.com/square/leakcanary)
+
+  ​
+
+  ​
+
+  ​
+
+
 
