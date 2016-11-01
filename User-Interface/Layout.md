@@ -3,7 +3,7 @@
 * 引用布局：
   * Java代码中引用：`R.layout.filename`
   * XML代码中引用：`@[package:]layout/filename`
-  
+
 ``` xml
 <ViewGroup
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,17 +26,18 @@
 ```
 
 ### 布局优化
+
 * \<include\>标签<br>
-\<include\>标签可以将一个指定的布局文件加载到当前的布局文件中。使用\<include\>标签必须要重写`android:layout_height`和`android:layout_width`属性。<br>
+  \<include\>标签可以将一个指定的布局文件加载到当前的布局文件中。使用\<include\>标签必须要重写`android:layout_height`和`android:layout_width`属性。<br>
 ``` xml
 <include layout="@layout/titlebar"/>
 ```
 
 * \<merge\>标签<br>
-\<merge\>标签一般跟\<include\>标签一起使用来减少布局的层级。当LayoutInflater遇到\<merge/\>标签时,它会跳过它,并将\<merge/\>内的元素添加到\<merge/\>的父元素里。<br>
+  \<merge\>标签一般跟\<include\>标签一起使用来减少布局的层级。当LayoutInflater遇到\<merge/\>标签时,它会跳过它,并将\<merge/\>内的元素添加到\<merge/\>的父元素里。<br>
 
 * ViewStub<br>
-ViewStub可以按需加载所需的布局文件。当ViewStub通过`setVisibility()`或`inflate()`方法加载后，ViewStub就会被它内部的布局替换掉。<br>
+  ViewStub可以按需加载所需的布局文件。当ViewStub通过`setVisibility()`或`inflate()`方法加载后，ViewStub就会被它内部的布局替换掉。<br>
 ``` xml
 <ViewStub
   android:id="@+id/stub_import"
