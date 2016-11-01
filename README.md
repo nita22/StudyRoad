@@ -24,17 +24,16 @@ Java & Android 知识点备忘
 
 ### [资源文件](/Resources/Resources.md)
 #### Drawable
-> [BitmapDrawable](/Drawable/BitmapDrawable.md)
-> [NinePatchDrawable](/Drawable/NinePatchDrawable.md)
-> [ShapeDrawable](/Drawable/ShapeDrawable.md)
-> [LayerDrawable](/Drawable/LayerDrawable.md)
-> [StateListDrawable](/Drawable/StateListDrawable.md)
-> [LevelListDrawable](/Drawable/LevelListDrawable.md)
-> [InsetDrawable](/Drawable/InsetDrawable.md)
-> [ScaleDrawable](/Drawable/ScaleDrawable.md)
-> [ClipDrawable](/Drawable/ClipDrawable.md)
-> [TransitionDrawable](/Drawable/TransitionDrawable.md)
-
+* [BitmapDrawable](/Drawable/BitmapDrawable.md)
+* [NinePatchDrawable](/Drawable/NinePatchDrawable.md)
+* [ShapeDrawable](/Drawable/ShapeDrawable.md)
+* [LayerDrawable](/Drawable/LayerDrawable.md)
+* [StateListDrawable](/Drawable/StateListDrawable.md)
+* [LevelListDrawable](/Drawable/LevelListDrawable.md)
+* [InsetDrawable](/Drawable/InsetDrawable.md)
+* [ScaleDrawable](/Drawable/ScaleDrawable.md)
+* [ClipDrawable](/Drawable/ClipDrawable.md)
+* [TransitionDrawable](/Drawable/TransitionDrawable.md)
 * 自定义Drawable
 
 #### [其它资源文件类型](/Resources/ResourceTypes.md)
@@ -179,36 +178,36 @@ Java & Android 知识点备忘
   * [Gson](https://github.com/google/gson)
 
 
-  * [Fastjson](https://github.com/alibaba/fastjson)
+*   [Fastjson](https://github.com/alibaba/fastjson)
 
-* 事件处理
+*   事件处理
 
-  * [EventBus](https://github.com/greenrobot/EventBus)
-  * [Otto](https://github.com/square/otto)
+    * [EventBus](https://github.com/greenrobot/EventBus)
+    * [Otto](https://github.com/square/otto)
 
-* 热补丁技术
+*   热补丁技术
 
-  * [Tinker](https://github.com/Tencent/tinker)
-  * [AndFix](https://github.com/alibaba/AndFix)
+    * [Tinker](https://github.com/Tencent/tinker)
+    * [AndFix](https://github.com/alibaba/AndFix)
 
-* 二维码
+*   二维码
 
-  * [zxing](https://github.com/zxing/zxing)
+    * [zxing](https://github.com/zxing/zxing)
 
-* 依赖注入库
+*   依赖注入库
 
-  * [Dagger2](https://github.com/google/dagger)
-  * [Butterknife](https://github.com/JakeWharton/butterknife)
+    * [Dagger2](https://github.com/google/dagger)
+    * [Butterknife](https://github.com/JakeWharton/butterknife)
 
-* 内存泄漏检测
+*   内存泄漏检测
 
-  * [LeakCanary](https://github.com/square/leakcanary)
+    * [LeakCanary](https://github.com/square/leakcanary)
 
-  ​
+    ​
 
-  ​
+    ​
 
-  ​
+    ​
 
 
 
