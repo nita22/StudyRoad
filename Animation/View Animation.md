@@ -1,6 +1,5 @@
 # View动画
 
-## 补间动画
 ### 在xml中定义
 * 文件位置：res/anim/filename.xml
 * 引用资源：
@@ -146,28 +145,3 @@ alphaAnimation.setDuration(300);
 mButton.setAnimation(alphaAnimation);
 ```
 
-## 帧动画
-
-### 在xml文件中定义
-* 文件位置：res/drawable/filename.xml
-* 引用帧动画：
-  * 在Java代码中：`R.drawable.filename`
-  * 在XML中：`@[package:]drawable.filename`
-
-``` xml
-<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
-    android:oneshot=["true" | "false"] >
-    <item
-        android:drawable="@[package:]drawable/drawable_resource_name"
-        android:duration="integer" />
-</animation-list>
-```
-
-### 在Java代码中使用帧动画
-``` java
-ImageView rocketImage = (ImageView) findViewById(R.id.rocket_image);
-rocketImage.setBackgroundResource(R.drawable.rocket_thrust);
-
-rocketAnimation = (AnimationDrawable) rocketImage.getBackground();
-rocketAnimation.start();
-```
