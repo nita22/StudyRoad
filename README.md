@@ -105,8 +105,9 @@ Java & Android 知识点备忘
     ​
 
 ### 动画
-* [属性动画](/Animation/Property%20Animation.md)
+* [帧动画](/Animation/Drawable%20Animation.md)
 * [View动画](/Animation/View%20Animation.md)
+* [属性动画](/Animation/Property%20Animation.md)
   ​
 
 ### 消息机制
