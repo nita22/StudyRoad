@@ -4,6 +4,8 @@
 
 每一个path代表着SVG图形的绘制轮廓，而group代表着图形变换。可以通过group对不同的path进行组合。
 
+![](https://github.com/nita22/StudyRoad/blob/master/Res/Pic/vector.png?raw=true)
+
 ``` xml
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     <!-- intrinsic size of the drawable -->
