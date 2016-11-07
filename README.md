@@ -34,6 +34,7 @@ Java & Android 知识点备忘
 * [ScaleDrawable](/Drawable/ScaleDrawable.md)
 * [ClipDrawable](/Drawable/ClipDrawable.md)
 * [TransitionDrawable](/Drawable/TransitionDrawable.md)
+* [VectorDrawable & AnimatedVectorDrawable](/Drawable/VectorDrawable%20&%20AnimatedVectorDrawable.md)
 * 自定义Drawable
 
 #### [其它资源文件类型](/Resources/ResourceTypes.md)
@@ -42,9 +43,15 @@ Java & Android 知识点备忘
 
 ### View
 * View工作过程
+
 * View事件分发机制
+
 * View滑动
+
 * 自定义View
+
+* SurfaceView
+
   ​
 
 ### UI
@@ -95,6 +102,20 @@ Java & Android 知识点备忘
 * [Setting](/User-Interface/Setting.md)
 
   ​
+
+
+### 绘制图形
+
+* Canvas
+
+  ​
+
+### 动画
+* [帧动画](/Animation/Drawable%20Animation.md)
+* [View动画](/Animation/View%20Animation.md)
+* [属性动画](/Animation/Property%20Animation.md)
+  ​
+
 ### 图片加载
 * 图片压缩
 * 图片缓存
@@ -103,12 +124,6 @@ Java & Android 知识点备忘
   * DiskLruCache
 
     ​
-
-### 动画
-* [帧动画](/Animation/Drawable%20Animation.md)
-* [View动画](/Animation/View%20Animation.md)
-* [属性动画](/Animation/Property%20Animation.md)
-  ​
 
 ### 消息机制
 * Handler
@@ -177,9 +192,8 @@ Java & Android 知识点备忘
 * Json解析
 
   * [Gson](https://github.com/google/gson)
+  * [Fastjson](https://github.com/alibaba/fastjson)
 
-
-*   [Fastjson](https://github.com/alibaba/fastjson)
 
 *   事件处理
 
