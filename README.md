@@ -106,7 +106,7 @@ Java & Android 知识点备忘
 
 ### 绘制图形
 
-* Canvas
+* [Canvas](/Graphics/Canvas.md)
 
   ​
 
