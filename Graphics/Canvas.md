@@ -54,7 +54,7 @@ Canvas还提供了一系列draw*方法来实现设计：
 
 通过SurfaceView的`getHolder()`函数可以获取SurfaceHolder对象。在SurfaceHolder中利用`Canvas.lockCanvas()`方法来获取Canvas对象，通过在Canvas上绘制内容来修改SurfaceView中的数据。一旦绘制完成，调用`unlockCanvasAndPost()`方法并传入绘制好的Canvas。
 
-**从SurfaceHolder中获取到的Canvas对象会保留之前的状态，如果不对该Canvas进行重绘处理而直接在其上面做绘制，也会显示之前的Canvas图像。**
+**从SurfaceHolder中获取到的Canvas对象会保留之前的状态，如果不对该Canvas进行重绘处理而直接在其上面做绘制，也会显示之前的Canvas图像。可以通过`drawColor()`或者`drawBackground()`方法进行清除工作。**
 
 
 
