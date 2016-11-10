@@ -153,7 +153,7 @@ Java & Android 知识点备忘
 ### 数据存储技术
 * [SharedPreferences](/Data-Storage/SharedPreferences.md)
 * [文件储存](/Data-Storage/File%20Storage.md)
-* SQLite数据库
+* [SQLite数据库](/Data-Storage/Database%20Storage.md)
   ​
 
 ### 硬件方面
