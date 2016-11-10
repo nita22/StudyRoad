@@ -7,37 +7,32 @@ Java & Android 知识点备忘
 
 ## Android
 ### Android组件
-#### [Activity](/Android-Components/Activity.md) 
-#### [Service](/Android-Components/Service.md) 
-#### [BroadcastReceiver](/Android-Components/BroadcastReceiver.md)
-#### [ContentProvider](/Android-Components/ContentProvider.md)
-* [存储访问框架 (SAF)](/Android-Components/SAF.md)
+* [Activity](/Android-Components/Activity.md) 
+* [Service](/Android-Components/Service.md) 
+* [BroadcastReceiver](/Android-Components/BroadcastReceiver.md)
+* [ContentProvider](/Android-Components/ContentProvider.md)
+  * [存储访问框架 (SAF)](/Android-Components/SAF.md)
 
-#### [Intent](/Android-Components/Intent.md)
-#### [Fragment](/Android-Components/Fragment.md)
-
-
+* [Intent](/Android-Components/Intent.md)
+* [Fragment](/Android-Components/Fragment.md)
 
 ### [AndroidManifest文件](/AndroidManifest.md)
 
-
-
 ### [资源文件](/Resources/Resources.md)
-#### Drawable
-* [BitmapDrawable](/Drawable/BitmapDrawable.md)
-* [NinePatchDrawable](/Drawable/NinePatchDrawable.md)
-* [ShapeDrawable](/Drawable/ShapeDrawable.md)
-* [LayerDrawable](/Drawable/LayerDrawable.md)
-* [StateListDrawable](/Drawable/StateListDrawable.md)
-* [LevelListDrawable](/Drawable/LevelListDrawable.md)
-* [InsetDrawable](/Drawable/InsetDrawable.md)
-* [ScaleDrawable](/Drawable/ScaleDrawable.md)
-* [ClipDrawable](/Drawable/ClipDrawable.md)
-* [TransitionDrawable](/Drawable/TransitionDrawable.md)
-* [VectorDrawable & AnimatedVectorDrawable](/Drawable/VectorDrawable%20&%20AnimatedVectorDrawable.md)
-* 自定义Drawable
-
-#### [其它资源文件类型](/Resources/ResourceTypes.md)
+* Drawable
+  * [BitmapDrawable](/Drawable/BitmapDrawable.md)
+  * [NinePatchDrawable](/Drawable/NinePatchDrawable.md)
+  * [ShapeDrawable](/Drawable/ShapeDrawable.md)
+  * [LayerDrawable](/Drawable/LayerDrawable.md)
+  * [StateListDrawable](/Drawable/StateListDrawable.md)
+  * [LevelListDrawable](/Drawable/LevelListDrawable.md)
+  * [InsetDrawable](/Drawable/InsetDrawable.md)
+  * [ScaleDrawable](/Drawable/ScaleDrawable.md)
+  * [ClipDrawable](/Drawable/ClipDrawable.md)
+  * [TransitionDrawable](/Drawable/TransitionDrawable.md)
+  * [VectorDrawable & AnimatedVectorDrawable](/Drawable/VectorDrawable%20&%20AnimatedVectorDrawable.md)
+  * 自定义Drawable
+* [其它资源文件类型](/Resources/ResourceTypes.md)
 
 
 
