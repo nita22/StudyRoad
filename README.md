@@ -151,7 +151,7 @@ Java & Android 知识点备忘
 
 
 ### 数据存储技术
-* SharedPreference
+* [SharedPreferences](/Data-Storage/SharedPreferences.md)
 * 文件储存
 * SQLite数据库
   ​
