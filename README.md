@@ -12,11 +12,10 @@ Java & Android 知识点备忘
 * [BroadcastReceiver](/Android-Components/BroadcastReceiver.md)
 * [ContentProvider](/Android-Components/ContentProvider.md)
   * [存储访问框架 (SAF)](/Android-Components/SAF.md)
-
 * [Intent](/Android-Components/Intent.md)
 * [Fragment](/Android-Components/Fragment.md)
 
-### [AndroidManifest文件](/AndroidManifest.md)
+
 
 ### [资源文件](/Resources/Resources.md)
 * Drawable
@@ -36,6 +35,10 @@ Java & Android 知识点备忘
 
 
 
+### [AndroidManifest文件](/AndroidManifest.md)
+
+
+
 ### View
 * View工作过程
 
@@ -49,7 +52,7 @@ Java & Android 知识点备忘
 
   ​
 
-### UI
+### User Interface
 * [布局](/User-Interface/Layout.md)
 
 * TextView
@@ -142,6 +145,8 @@ Java & Android 知识点备忘
 
 ### 网络编程
 
+* WebView
+
 
 
 
@@ -151,13 +156,30 @@ Java & Android 知识点备忘
 * [SQLite数据库](/Data-Storage/Database%20Storage.md)
   ​
 
-### 硬件方面
-* 电话 短信
-* 蓝牙 NFC Wifi
+### 多媒体
+
+* 音频
+* 视频
+* 摄像头
+
+
+
+### 位置与传感器
+
 * 位置服务
-* 硬件传感器
-* 音频、视频、摄像头
-  ​
+* 其它传感器
+
+
+
+### 硬件连接
+
+* 蓝牙
+* NFC
+* USB
+* Wi-Fi P2P
+* SIP
+
+
 
 ### 优秀开源框架
 

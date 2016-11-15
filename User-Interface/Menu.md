@@ -129,6 +129,43 @@ public boolean onOptionsItemSelected(MenuItem item) {
 * 在 Android 2.3.x 及更低版本中，每当用户打开选项菜单时，系统均会调用 `onPrepareOptionsMenu()`。
 * 在 Android 3.0 及更高版本中，当菜单项显示在操作栏中时，选项菜单被视为始终处于打开状态。发生事件时，如果您要执行菜单更新，则必须调用`invalidateOptionsMenu()` 来请求系统调用 `onPrepareOptionsMenu()`。
 
+### 为下级 Activity 添加向上按钮
+
+实现向上导航需要在 manifest 文件中声明父 activity ，然后通过调用`setDisplayHomeAsUpEnabled()`来把 app icon 设置成可用的向上按钮：
+
+``` xml
+<application ... >
+    ...
+    <!-- 主 main/home 活动 (没有上级活动) -->
+    <activity
+        android:name="com.example.myfirstapp.MainActivity" ...>
+        ...
+    </activity>
+    <!-- 主活动的一个子活动-->
+    <activity
+        android:name="com.example.myfirstapp.DisplayMessageActivity"
+        android:label="@string/title_activity_display_message"
+        android:parentActivityName="com.example.myfirstapp.MainActivity" >
+        <!--  meta-data 用于支持 support 4.0 以及以下来指明上级活动 -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.myfirstapp.MainActivity" />
+    </activity>
+</application>
+```
+
+``` java
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_displaymessage);
+
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    // 如果你的minSdkVersion属性是11或更高, 应该这么用:
+    // getActionBar().setDisplayHomeAsUpEnabled(true);
+}
+```
+
 ## **上下文菜单和上下文操作模式**
 ### 创建浮动上下文菜单（Android 3.0以下系统）
 
