@@ -3,7 +3,10 @@ Java & Android 知识点备忘
 
 ## Java SE
 
+### Thinking in Java
 
+* [对象初始化和面向对象特性](/Thinking-in-Java/对象初始化和面向对象特性.md)
+* [面向对象和JVM基础](/Thinking-in-Java/面向对象和JVM基础.md)
 
 ## Android
 ### Android组件
