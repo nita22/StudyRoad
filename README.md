@@ -7,6 +7,11 @@ Java & Android 知识点备忘
 
 * [对象初始化和面向对象特性](/Thinking-in-Java/对象初始化和面向对象特性.md)
 * [面向对象和JVM基础](/Thinking-in-Java/面向对象和JVM基础.md)
+* [内部类](/Thinking-in-Java/内部类.md)
+* [集合容器](/Thinking-in-Java/集合容器.md)
+* [正则表达式量词匹配](/Thinking-in-Java/正则表达式量词匹配.md)
+* [Java动态代理](/Thinking-in-Java/Java动态代理.md)
+* [泛型编程](/Thinking-in-Java/泛型编程.md)
 
 ## Android
 ### Android组件
