@@ -12,6 +12,7 @@ Java & Android 知识点备忘
 * [正则表达式量词匹配](/Thinking-in-Java/正则表达式量词匹配.md)
 * [Java动态代理](/Thinking-in-Java/Java动态代理.md)
 * [泛型编程](/Thinking-in-Java/泛型编程.md)
+* [文件和目录常用操作](/Thinking-in-Java/文件和目录常用操作.md)
 
 ## Android
 ### Android组件
